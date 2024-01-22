@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main-content {
+    position: relative;
+    top: 8%;
+    width: 99%;
+    min-height: 90vh;
+    left: 50%; /* Move the element 50% from the left edge */
+    transform: translateX(-50%); /* Center it horizontally */
+}
+
+
+.collapse-arrow > .collapse-title:after{
+    /* position: unset; */
+    --tw-translate-y: -190%;
+    --tw-rotate: -45deg;
+    pointer-events: pointer;
+    transform-origin: unset;
+  }
+
+.collapse-title,
+:where(.collapse > input[type="checkbox"]),
+:where(.collapse > input[type="radio"]){
+    min-height: auto;
+}
+
+.collapse[open].collapse-arrow > .collapse-title:after,
+.collapse-open.collapse-arrow > .collapse-title:after,
+.collapse-arrow:focus:not(.collapse-close) > .collapse-title:after,
+.collapse-arrow:not(.collapse-close) > input[type="checkbox"]:checked ~ .collapse-title:after,
+.collapse-arrow:not(.collapse-close) > input[type="radio"]:checked ~ .collapse-title:after{
+    --tw-translate-y: -260%;
+    --tw-rotate: 45deg;
+}
