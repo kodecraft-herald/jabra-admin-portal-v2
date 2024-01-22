@@ -1,4 +1,7 @@
-use crate::error_template::{AppError, ErrorTemplate};
+use crate::{
+    components::page::Page,
+    error_template::{AppError, ErrorTemplate},
+};
 use leptos::*;
 use leptos_meta::*;
 use leptos_router::*;
@@ -27,24 +30,17 @@ pub fn App() -> impl IntoView {
             }
             .into_view()
         }>
-            <main>
-                <Routes>
-                    <Route path="" view=HomePage/>
-                </Routes>
+            <main class="font-poppins">
+                <div class="min-h-full">
+                    <Routes>
+                        <Route path="/" view=Page/>
+                        <Route path="/quote_builder" view=Page/>
+                        <Route path="/active_quotes" view=Page/>
+                        <Route path="/positions" view=Page/>
+                        <Route path="/trade_history" view=Page/>
+                    </Routes>
+                </div>
             </main>
         </Router>
-    }
-}
-
-/// Renders the home page of your application.
-#[component]
-fn HomePage() -> impl IntoView {
-    // Creates a reactive value to update the button
-    let (count, set_count) = create_signal(0);
-    let on_click = move |_| set_count.update(|count| *count += 1);
-
-    view! {
-        <h1>"Welcome to Leptos!"</h1>
-        <button on:click=on_click>"Click Me: " {count}</button>
     }
 }
