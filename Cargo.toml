@@ -26,6 +26,7 @@ tracing = { version = "0.1.37", optional = true }
 http = "0.2.8"
 serde = { version = "1.0.195", features = ["derive"] }
 leptos-use = "0.9.0"
+phosphor-leptos = "0.2.1"
 
 [features]
 hydrate = ["leptos/hydrate", "leptos_meta/hydrate", "leptos_router/hydrate"]

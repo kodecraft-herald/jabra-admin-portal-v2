@@ -953,6 +953,7 @@ dependencies = [
  "leptos_meta",
  "leptos_router",
  "log",
+ "phosphor-leptos",
  "serde",
  "simple_logger",
  "thiserror",
@@ -1454,6 +1455,15 @@ name = "percent-encoding"
 version = "2.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e3148f5046208a5d56bcfc03053e3ca6334e51da8dfb19b6cdc8b306fae3283e"
+
+[[package]]
+name = "phosphor-leptos"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "aa179ba8579a05610aec6838d4e45f515018ec50ccf41b9ba8a1e45399c35c39"
+dependencies = [
+ "leptos",
+]
 
 [[package]]
 name = "pin-project"
