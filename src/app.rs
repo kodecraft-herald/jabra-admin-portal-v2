@@ -31,9 +31,10 @@ pub fn App() -> impl IntoView {
             .into_view()
         }>
             <main class="font-poppins">
-                <div class="min-h-full">
+                <div class="min-h-screen">
                     <Routes>
                         <Route path="/" view=Page/>
+                        <Route path="/login" view=Page/>
                         <Route path="/quote_builder" view=Page/>
                         <Route path="/active_quotes" view=Page/>
                         <Route path="/positions" view=Page/>

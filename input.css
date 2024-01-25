@@ -36,3 +36,18 @@
     --tw-translate-y: -260%;
     --tw-rotate: 45deg;
 }
+
+.main-content {
+    min-height: 100vh;
+}
+
+.svg-bg {
+    /* width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    overflow-y: auto;
+    background-image: url("/public/svg.svg"); */
+    z-index: 5;
+    transform: translateY(30%);
+    pointer-events: none;
+}
