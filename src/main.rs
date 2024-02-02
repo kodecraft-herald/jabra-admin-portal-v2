@@ -2,10 +2,10 @@
 #[tokio::main]
 async fn main() {
     use axum::{routing::post, Router};
-    use leptos::*;
-    use leptos_axum::{generate_route_list, LeptosRoutes};
     use islands_arch_test::app::*;
     use islands_arch_test::fileserv::file_and_error_handler;
+    use leptos::*;
+    use leptos_axum::{generate_route_list, LeptosRoutes};
 
     simple_logger::init_with_level(log::Level::Debug).expect("couldn't initialize logging");
 
@@ -29,10 +29,14 @@ async fn main() {
     // run our app with hyper
     // `axum::Server` is a re-export of `hyper::Server`
     log::info!("listening on http://{}", &addr);
-    axum::Server::bind(&addr)
-        .serve(app.into_make_service())
+    let listener = tokio::net::TcpListener::bind("127.0.0.1:3000")
         .await
         .unwrap();
+    axum::serve(listener, app).await.unwrap();
+    // axum::Server::bind(&addr)
+    //     .serve(app.into_make_service())
+    //     .await
+    //     .unwrap();
 }
 
 #[cfg(not(feature = "ssr"))]

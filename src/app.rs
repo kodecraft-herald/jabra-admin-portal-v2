@@ -6,10 +6,32 @@ use leptos::*;
 use leptos_meta::*;
 use leptos_router::*;
 
+#[derive(Copy, Clone)]
+pub struct Refetcher(pub RwSignal<bool>);
+
+#[derive(Copy, Clone)]
+pub struct HasError(pub RwSignal<bool>);
+
+#[derive(Copy, Clone)]
+pub struct CheckCookie(pub Resource<bool, Result<bool, ServerFnError>>);
+
 #[component]
 pub fn App() -> impl IntoView {
     // Provides context that manages stylesheets, titles, meta tags, etc.
     provide_meta_context();
+
+    let refetcher = create_rw_signal(false);
+    let has_error = create_rw_signal(false);
+
+    let auth_resource: Resource<bool, Result<bool, ServerFnError>> =
+        create_local_resource(refetcher, move |_| async move {
+            crate::components::wrapper::check_server_cookie("jabra-admin-portal-v2".to_string())
+                .await
+        });
+
+    provide_context(Refetcher(refetcher));
+    provide_context(HasError(has_error));
+    provide_context(CheckCookie(auth_resource));
 
     view! {
 

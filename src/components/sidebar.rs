@@ -2,8 +2,10 @@ use leptos::*;
 use leptos_router::use_location;
 
 const SELECTED_CLASS: &str = "font-semibold justify-start capitalize border border-success text-success rounded-xl w-full flex flex-row gap-2 items-center p-2";
-const UNSELECTED_CLASS: &str = "font-normal justify-start capitalize w-full rounded-xl flex flex-row gap-2 items-center p-2";
-const SELECTED_CLASS_MOBILE: &str = "flex justify-center border border-success text-success rounded-xl p-2";
+const UNSELECTED_CLASS: &str =
+    "font-normal justify-start capitalize w-full rounded-xl flex flex-row gap-2 items-center p-2";
+const SELECTED_CLASS_MOBILE: &str =
+    "flex justify-center border border-success text-success rounded-xl p-2";
 const UNSELECTED_CLASS_MOBILE: &str = "flex justify-center rounded-xl p-2";
 
 #[component]
@@ -93,8 +95,13 @@ pub fn Sidebar() -> impl IntoView {
 }
 
 #[island]
-pub fn Anchor(location: String, anchor_url: String, title: String, sub_anchor: bool, icon_title: Option<String>) -> impl IntoView 
-{
+pub fn Anchor(
+    location: String,
+    anchor_url: String,
+    title: String,
+    sub_anchor: bool,
+    icon_title: Option<String>,
+) -> impl IntoView {
     let is_selected = move |is_selected: bool, mobile: bool| {
         if mobile {
             if is_selected {
@@ -109,7 +116,6 @@ pub fn Anchor(location: String, anchor_url: String, title: String, sub_anchor: b
                 UNSELECTED_CLASS
             }
         }
-
     };
 
     let anchor_url_fn = move || format!("{}", anchor_url.clone());
@@ -128,7 +134,8 @@ pub fn Anchor(location: String, anchor_url: String, title: String, sub_anchor: b
                         <a class = {is_selected(location_fn() == {format!("{}", anchor_url_fn())}, false)} class="hover:bg-base-100" href = {format!("{}", anchor_url_fn())}>
                             <Icon
                                 title = icon_title.clone().unwrap()
-                                size = "22px".to_string()
+                                size = "w-5 h-5".to_string()
+                                // size = "22px".to_string()
                             />
                             <span class="text-center">{format!("{}", title.clone())}</span>
                         </a>
@@ -140,7 +147,8 @@ pub fn Anchor(location: String, anchor_url: String, title: String, sub_anchor: b
                         <a class = {is_selected(location_fn() == {format!("{}", anchor_url_fn())}, true)} class="hover:bg-base-100" href = {format!("{}", anchor_url_fn())}>
                             <Icon
                                 title = icon_title.clone().unwrap()
-                                size = "26px".to_string()
+                                size = "w-6 h-6".to_string()
+                                // size = "26px".to_string()
                             />
                         </a>
                     </div>
@@ -156,8 +164,7 @@ pub fn MenuWithSubMenu(
     title: String,
     icon_title: String,
     children: ChildrenFn,
-) -> impl IntoView 
-{
+) -> impl IntoView {
     let is_selected_collapse = move |is_selected_collapse: bool| {
         if is_selected_collapse {
             SELECTED_CLASS_MOBILE
@@ -172,7 +179,8 @@ pub fn MenuWithSubMenu(
             <div class="flex flex-row gap-2 items-center">
                 <Icon
                     title = icon_title.clone()
-                    size = "22px".to_string()
+                    size = "w-5 h-5".to_string()
+                    // size = "22px".to_string()
                 />
                 <span>{format!("{}", title.clone())}</span>
             </div>
@@ -189,12 +197,13 @@ pub fn MenuWithSubMenu(
                 <div tabindex="0" role="button" class="hover:bg-base-100" class = {move || is_selected_collapse(sub_menu_open)}>
                     <Icon
                         title = icon_title.clone()
-                        size = "26px".to_string()
+                        size = "w-6 h-6".to_string()
+                        // size = "26px".to_string()
                     />
                 </div>
                 <div class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                     {children()}
-                </div>  
+                </div>
             </div>
         </div>
     }
@@ -204,48 +213,53 @@ pub fn MenuWithSubMenu(
 pub fn Icon(title: String, size: String) -> impl IntoView {
     match title.as_str() {
         "Dashboard" => view! {
-            <phosphor_leptos::House size=format!("{}", size.clone())/>
+            // <phosphor_leptos::House size=format!("{}", size.clone())/>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class={format!("{}", size.clone())}>
+                <path fill-rule="evenodd" d="M4.5 2A1.5 1.5 0 003 3.5v13A1.5 1.5 0 004.5 18h11a1.5 1.5 0 001.5-1.5V7.621a1.5 1.5 0 00-.44-1.06l-4.12-4.122A1.5 1.5 0 0011.378 2H4.5zm2.25 8.5a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-6.5zm0 3a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-6.5z" clip-rule="evenodd" />
+                </svg>
+            </span>
         }.into_view(),
         "Quotes" => view! {
-            <phosphor_leptos::Note size=format!("{}", size.clone())/>
-            // <span>
-            //     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class={format!("{}", class.clone())}>
-            //     <path fill-rule="evenodd" d="M4.5 2A1.5 1.5 0 003 3.5v13A1.5 1.5 0 004.5 18h11a1.5 1.5 0 001.5-1.5V7.621a1.5 1.5 0 00-.44-1.06l-4.12-4.122A1.5 1.5 0 0011.378 2H4.5zm2.25 8.5a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-6.5zm0 3a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-6.5z" clip-rule="evenodd" />
-            //     </svg>
-            // </span>
+            // <phosphor_leptos::Note size=format!("{}", size.clone())/>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class={format!("{}", size.clone())}>
+                <path fill-rule="evenodd" d="M4.5 2A1.5 1.5 0 003 3.5v13A1.5 1.5 0 004.5 18h11a1.5 1.5 0 001.5-1.5V7.621a1.5 1.5 0 00-.44-1.06l-4.12-4.122A1.5 1.5 0 0011.378 2H4.5zm2.25 8.5a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-6.5zm0 3a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-6.5z" clip-rule="evenodd" />
+                </svg>
+            </span>
         }.into_view(),
         "Trades" => view! {
-            <phosphor_leptos::PresentationChart size=format!("{}", size.clone())/>
-            // <span>
-            //     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class={format!("{}", class.clone())}>
-            //     <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h16.5a.75.75 0 010 1.5H18v8.75A2.75 2.75 0 0115.25 15h-1.072l.798 3.06a.75.75 0 01-1.452.38L13.41 18H6.59l-.114.44a.75.75 0 01-1.452-.38L5.823 15H4.75A2.75 2.75 0 012 12.25V3.5h-.25A.75.75 0 011 2.75zM7.373 15l-.391 1.5h6.037l-.392-1.5H7.373zm7.49-8.931a.75.75 0 01-.175 1.046 19.326 19.326 0 00-3.398 3.098.75.75 0 01-1.097.04L8.5 8.561l-2.22 2.22A.75.75 0 115.22 9.72l2.75-2.75a.75.75 0 011.06 0l1.664 1.663a20.786 20.786 0 013.122-2.74.75.75 0 011.046.176z" clip-rule="evenodd" />
-            //     </svg>
-            // </span>
+            // <phosphor_leptos::PresentationChart size=format!("{}", size.clone())/>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class={format!("{}", size.clone())}>
+                <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h16.5a.75.75 0 010 1.5H18v8.75A2.75 2.75 0 0115.25 15h-1.072l.798 3.06a.75.75 0 01-1.452.38L13.41 18H6.59l-.114.44a.75.75 0 01-1.452-.38L5.823 15H4.75A2.75 2.75 0 012 12.25V3.5h-.25A.75.75 0 011 2.75zM7.373 15l-.391 1.5h6.037l-.392-1.5H7.373zm7.49-8.931a.75.75 0 01-.175 1.046 19.326 19.326 0 00-3.398 3.098.75.75 0 01-1.097.04L8.5 8.561l-2.22 2.22A.75.75 0 115.22 9.72l2.75-2.75a.75.75 0 011.06 0l1.664 1.663a20.786 20.786 0 013.122-2.74.75.75 0 011.046.176z" clip-rule="evenodd" />
+                </svg>
+            </span>
         }.into_view(),
         "Settings" => view! {
-            <phosphor_leptos::Gear size=format!("{}", size.clone())/>
-            // <span>
-            //     <svg class={format!("{}", class.clone())} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            //         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-            //         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            //     </svg>
-            // </span>
+            // <phosphor_leptos::Gear size=format!("{}", size.clone())/>
+            <span>
+                <svg class={format!("{}", size.clone())} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+            </span>
         }.into_view(),
         "Login" => view! {
-            <phosphor_leptos::SignIn size=format!("{}", size.clone())/>
-            // <span>
-            //     <svg xmlns="http://www.w3.org/2000/svg" class={format!("{}", class.clone())} fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            //         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
-            //     </svg>
-            // </span>
+            // <phosphor_leptos::SignIn size=format!("{}", size.clone())/>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" class={format!("{}", size.clone())} fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                </svg>
+            </span>
         }.into_view(),
         "Logout" => view! {
-            <phosphor_leptos::SignOut size=format!("{}", size.clone())/>
-            // <span>
-            //     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={format!("{}", class.clone())}>
-            //         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
-            //     </svg>
-            // </span>
+            // <phosphor_leptos::SignOut size=format!("{}", size.clone())/>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={format!("{}", size.clone())}>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+                </svg>
+            </span>
         }.into_view(),
         "Jabra" => view! {
             <svg class={format!("{}", size.clone())} xmlns="http://www.w3.org/2000/svg" width="58" height="58" viewBox="0 0 58 58" fill="currentColor">
