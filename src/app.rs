@@ -17,8 +17,15 @@ pub struct CheckCookie(pub Resource<bool, Result<bool, ServerFnError>>);
 
 #[component]
 pub fn App() -> impl IntoView {
+    _ = crate::providers::color_scheme::provide_color_scheme();
     // Provides context that manages stylesheets, titles, meta tags, etc.
     provide_meta_context();
+
+    let color_scheme = use_context::<crate::providers::color_scheme::ColorScheme>().expect("Failed to find ColorScheme");
+    let theme = move || match color_scheme.prefers_dark.get() {
+        true => "darkpurple",
+        false => "lightpurple",
+    };
 
     let refetcher = create_rw_signal(false);
     let has_error = create_rw_signal(false);
@@ -52,7 +59,7 @@ pub fn App() -> impl IntoView {
             }
             .into_view()
         }>
-            <main class="font-poppins">
+            <main class="font-poppins" data-theme = theme>
                 <div class="min-h-screen">
                     <Routes>
                         <Route path="/" view=Page/>

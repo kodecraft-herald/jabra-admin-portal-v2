@@ -8,7 +8,7 @@ pub fn Login() -> impl IntoView {
     view! {
         <div class="h-full lg:grid lg:grid-cols-3">
             <div class = "h-full flex items-center justify-center px-4">
-                <div class="card flex-shrink-0 w-full max-w-sm shadow-lg bg-light">
+                <div class="card flex-shrink-0 w-full max-w-sm shadow-lg bg-base-100">
                     <div class="card-body">
                         <LoginIsland>
                                 <div class="form-control">
@@ -39,7 +39,7 @@ pub fn Login() -> impl IntoView {
             <div class = "h-full lg:flex items-center hidden lg:block lg:col-span-2">
                 <div class = "flex flex-col">
                     <div class="flex items-center">
-                        <h1 class="text-6xl text-white">
+                        <h1 class="text-6xl font-base">
                         "Bespoke Structured Products"
                         <br/>
                         "for your"

@@ -4,6 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.offset-clicked {
+    --handleoffset: -1.5rem;
+}
+
+.theme-cust {
+    justify-content: flex-end;
+}
+
 .main-content {
     position: relative;
     top: 8%;
