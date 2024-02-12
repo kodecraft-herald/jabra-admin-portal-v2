@@ -1,7 +1,7 @@
 use leptos::*;
 use leptos_router::ActionForm;
 
-use crate::app::{HasError, Refetcher};
+use crate::{app::{HasError, Refetcher}, components::common::components::input::{InputPassword, InputText}};
 
 #[component]
 pub fn Login() -> impl IntoView {
@@ -11,27 +11,19 @@ pub fn Login() -> impl IntoView {
                 <div class="card flex-shrink-0 w-full max-w-sm shadow-lg bg-base-100">
                     <div class="card-body">
                         <LoginIsland>
-                                <div class="form-control">
-                                    <label for = "userid" class="label">
-                                    <span class="label-text">Email</span>
-                                    </label>
-                                    <input type="text" id = "userid" name = "userid" class="input input-sm bg-white rounded hover:shadow-md text-black border-gray-800 shadow-md" autocomplete required
-                                    />
-                                </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                    <span for = "password" class="label-text">Password</span>
-                                    </label>
-                                    <input type="password" id = "password" name = "password" class="input input-sm bg-white rounded hover:shadow-md text-black border-gray-800 shadow-md" autocomplete required
-                                    />
-                                    <label class="label">
-                                    <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
-                                    </label>
-                                </div>
-                                // <div class="form-control mt-6">
-                                //     <ButtonWithState/>
-                                //     // <button type="submit" class="btn rounded btn-block btn-success">LOGIN</button>
-                                // </div>
+                            <InputText
+                                name="userid".to_string()
+                                label="Email".to_string()
+                                custom_class="input input-sm w-full bg-white rounded hover:shadow-md text-black border-gray-800 shadow-md".to_string()
+                            />
+                            <InputPassword
+                                name="password".to_string()
+                                label="Password".to_string()
+                                custom_class="input input-sm w-full bg-white rounded hover:shadow-md text-black border-gray-800 shadow-md".to_string()
+                            />
+                            <label class="label">
+                                <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+                            </label>
                         </LoginIsland>
                     </div>
                 </div>
@@ -103,30 +95,6 @@ pub fn LoginIsland(children: Children) -> impl IntoView {
         </ActionForm>
     }
 }
-
-// #[island]
-// pub fn ButtonWithState() -> impl IntoView {
-//     let is_pending = expect_context::<IsPending>().0;
-//     create_effect(move |_| {
-//         log::info!("Is_pending_button: {}", is_pending());
-//     });
-//     view! {
-//         {
-//             move || match is_pending() {
-//                 true => view! {
-//                     <div class="form-control mt-6">
-//                         <button type="submit" class="btn btn-block btn-success"><span class="loading loading-spinner loading-sm"></span></button>
-//                     </div>
-//                 }.into_any(),
-//                 false => view! {
-//                     <div class="form-control mt-6">
-//                         <button type="submit" class="btn rounded btn-block btn-success">LOGIN</button>
-//                     </div>
-//                 }.into_any(),
-//             }
-//         }
-//     }
-// }
 
 #[server(DirectusLogin, "/api")]
 pub async fn directus_login(userid: String, password: String) -> Result<bool, ServerFnError> {
