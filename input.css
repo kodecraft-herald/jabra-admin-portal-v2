@@ -15,7 +15,7 @@
 .main-content {
     position: relative;
     top: 8%;
-    width: 99%;
+    width: 100%;
     min-height: 90vh;
     left: 50%; /* Move the element 50% from the left edge */
     transform: translateX(-50%); /* Center it horizontally */
@@ -50,12 +50,8 @@
 }
 
 .svg-bg {
-    /* width: 100%;
-    min-height: 100vh;
-    height: 100%;
-    overflow-y: auto;
-    background-image: url("/public/svg.svg"); */
+    position: absolute;
+    top: 30%;
     z-index: 5;
-    transform: translateY(30%);
     pointer-events: none;
 }
