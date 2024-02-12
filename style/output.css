@@ -1283,6 +1283,29 @@ html{
   justify-self: end;
 }
 
+.mockup-code{
+  position: relative;
+  overflow: hidden;
+  overflow-x: auto;
+  min-width: 18rem;
+  border-radius: var(--rounded-box, 1rem);
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  --tw-text-opacity: 1;
+  color: var(--fallback-nc,oklch(var(--nc)/var(--tw-text-opacity)));
+  direction: ltr;
+}
+
+.mockup-code pre[data-prefix]:before{
+  content: attr(data-prefix);
+  display: inline-block;
+  text-align: right;
+  width: 2rem;
+  opacity: 0.5;
+}
+
 .select{
   display: inline-flex;
   cursor: pointer;
@@ -1915,6 +1938,28 @@ details.collapse summary::-webkit-details-marker{
   margin-top: 0;
 }
 
+.mockup-code:before{
+  content: "";
+  margin-bottom: 1rem;
+  display: block;
+  height: 0.75rem;
+  width: 0.75rem;
+  border-radius: 9999px;
+  opacity: 0.3;
+  box-shadow: 1.4em 0,
+        2.8em 0,
+        4.2em 0;
+}
+
+.mockup-code pre{
+  padding-right: 1.25rem;
+}
+
+.mockup-code pre:before{
+  content: "";
+  margin-right: 2ch;
+}
+
 .mockup-phone .display{
   overflow: hidden;
   border-radius: 40px;
@@ -2432,6 +2477,10 @@ details.collapse summary::-webkit-details-marker{
   display: flex;
 }
 
+.grid{
+  display: grid;
+}
+
 .hidden{
   display: none;
 }
@@ -2521,6 +2570,10 @@ details.collapse summary::-webkit-details-marker{
   cursor: pointer;
 }
 
+.grid-cols-2{
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .flex-row{
   flex-direction: row;
 }
@@ -2601,6 +2654,11 @@ details.collapse summary::-webkit-details-marker{
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-base-200{
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity)));
 }
 
 .bg-gradient-to-bl{
@@ -2709,6 +2767,31 @@ details.collapse summary::-webkit-details-marker{
   color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity)));
 }
 
+.text-warning{
+  --tw-text-opacity: 1;
+  color: var(--fallback-wa,oklch(var(--wa)/var(--tw-text-opacity)));
+}
+
+.text-primary{
+  --tw-text-opacity: 1;
+  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+}
+
+.text-secondary{
+  --tw-text-opacity: 1;
+  color: var(--fallback-s,oklch(var(--s)/var(--tw-text-opacity)));
+}
+
+.text-info{
+  --tw-text-opacity: 1;
+  color: var(--fallback-in,oklch(var(--in)/var(--tw-text-opacity)));
+}
+
+.text-base-100{
+  --tw-text-opacity: 1;
+  color: var(--fallback-b1,oklch(var(--b1)/var(--tw-text-opacity)));
+}
+
 .shadow{
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
@@ -2776,7 +2859,7 @@ details.collapse summary::-webkit-details-marker{
 .svg-bg {
   position: absolute;
   top: 30%;
-  z-index: 5;
+  /* z-index: 5; */
   pointer-events: none;
 }
 
