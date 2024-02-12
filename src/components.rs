@@ -5,3 +5,5 @@ pub mod page;
 pub mod sidebar;
 pub mod wrapper;
 pub mod dark_mode_toggle;
+pub mod common;
+pub mod component_testing;
