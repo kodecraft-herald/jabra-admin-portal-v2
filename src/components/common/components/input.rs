@@ -22,6 +22,14 @@ pub fn InputText(
     #[prop(optional)]
     icon: Option<String>
 ) -> impl IntoView {
+    let size_class = match size {
+        None => "input input-bordered w-full rounded hover:shadow-md",
+        Some(ComponentSize::ExtraSmall) => "input input-xs input-bordered w-full rounded hover:shadow-md",
+        Some(ComponentSize::Small) => "input input-sm input-bordered w-full rounded hover:shadow-md",
+        Some(ComponentSize::Base) => "input input-md input-bordered w-full rounded hover:shadow-md",
+        Some(ComponentSize::Large) => "input input-lg input-bordered w-full rounded hover:shadow-md",
+    };
+
     let input_component = match custom_class {
         Some(custom_class) => {
             view! {
@@ -29,32 +37,8 @@ pub fn InputText(
             }
         },
         None => {
-            match size {
-                None => {
-                    view! {
-                        <input type="text" name=name.clone() placeholder=placeholder class="input input-bordered w-full rounded hover:shadow-md" autocomplete required/>
-                    }
-                },
-                Some(ComponentSize::ExtraSmall) => {
-                    view! {
-                        <input type="text" name=name.clone() placeholder=placeholder class="input input-xs input-bordered w-full rounded hover:shadow-md" autocomplete required/>
-                    }
-                },
-                Some(ComponentSize::Small) => {
-                    view! {
-                        <input type="text" name=name.clone() placeholder=placeholder class="input input-sm input-bordered w-full rounded hover:shadow-md" autocomplete required/>
-                    }
-                },
-                Some(ComponentSize::Base) => {
-                    view! {
-                        <input type="text" name=name.clone() placeholder=placeholder class="input input-md input-bordered w-full rounded hover:shadow-md" autocomplete required/>
-                    }
-                },
-                Some(ComponentSize::Large) => {
-                    view! {
-                        <input type="text" name=name.clone() placeholder=placeholder class="input input-lg input-bordered w-full rounded hover:shadow-md" autocomplete required/>
-                    }
-                },
+            view! {
+                <input type="text" name=name.clone() placeholder=placeholder class=size_class autocomplete required/>
             }
         }
     };
@@ -103,6 +87,14 @@ pub fn InputPassword(
     #[prop(optional)]
     icon: Option<String>
 ) -> impl IntoView {
+    let size_class = match size {
+        None => "input input-bordered w-full rounded hover:shadow-md",
+        Some(ComponentSize::ExtraSmall) => "input input-xs input-bordered w-full rounded hover:shadow-md",
+        Some(ComponentSize::Small) => "input input-sm input-bordered w-full rounded hover:shadow-md",
+        Some(ComponentSize::Base) => "input input-md input-bordered w-full rounded hover:shadow-md",
+        Some(ComponentSize::Large) => "input input-lg input-bordered w-full rounded hover:shadow-md",
+    };
+
     let input_component = match custom_class {
         Some(custom_class) => {
             view! {
@@ -110,32 +102,8 @@ pub fn InputPassword(
             }
         },
         None => {
-            match size {
-                None => {
-                    view! {
-                        <input type="password" name=name.clone() placeholder=placeholder class="input input-bordered w-full rounded hover:shadow-md" autocomplete required/>
-                    }
-                },
-                Some(ComponentSize::ExtraSmall) => {
-                    view! {
-                        <input type="password" name=name.clone() placeholder=placeholder class="input input-xs input-bordered w-full rounded hover:shadow-md" autocomplete required/>
-                    }
-                },
-                Some(ComponentSize::Small) => {
-                    view! {
-                        <input type="password" name=name.clone() placeholder=placeholder class="input input-sm input-bordered w-full rounded hover:shadow-md" autocomplete required/>
-                    }
-                },
-                Some(ComponentSize::Base) => {
-                    view! {
-                        <input type="password" name=name.clone() placeholder=placeholder class="input input-md input-bordered w-full rounded hover:shadow-md" autocomplete required/>
-                    }
-                },
-                Some(ComponentSize::Large) => {
-                    view! {
-                        <input type="password" name=name.clone() placeholder=placeholder class="input input-lg input-bordered w-full rounded hover:shadow-md" autocomplete required/>
-                    }
-                },
+            view! {
+                <input type="password" name=name.clone() placeholder=placeholder class=size_class autocomplete required/>
             }
         }
     };
@@ -189,6 +157,13 @@ T: Add + Copy + 'static + FromStr + Default + IntoAttribute,
         let val = event_target_value(&e).parse::<T>().unwrap_or_default();
         value.set(val);
     };
+    let size_class = match size {
+        None => "input input-bordered w-full rounded hover:shadow-md",
+        Some(ComponentSize::ExtraSmall) => "input input-xs input-bordered w-full rounded hover:shadow-md",
+        Some(ComponentSize::Small) => "input input-sm input-bordered w-full rounded hover:shadow-md",
+        Some(ComponentSize::Base) => "input input-md input-bordered w-full rounded hover:shadow-md",
+        Some(ComponentSize::Large) => "input input-lg input-bordered w-full rounded hover:shadow-md",
+    };
     let input_component = match custom_class {
         Some(custom_class) => view! {
             <input type="number" class = custom_class
@@ -200,67 +175,15 @@ T: Add + Copy + 'static + FromStr + Default + IntoAttribute,
             />
         },
         None => {
-            match size {
-                None => {
-                    view! {
-                        <input type="number" class = "input input-bordered w-full rounded hover:shadow-md"
-                            name=name.clone()
-                            value = value
-                            min = move || min
-                            step = move || step
-                            on:change = function
-                            required
-                        />
-                    }
-                },
-                Some(ComponentSize::ExtraSmall) => {
-                    view! {
-                        <input type="number" class = "input input-xs input-bordered w-full rounded hover:shadow-md"
-                            name=name.clone()
-                            value = value
-                            min = move || min
-                            step = move || step
-                            on:change = function
-                            required
-                        />
-                    }
-                },
-                Some(ComponentSize::Small) => {
-                    view! {
-                        <input type="number" class = "input input-sm input-bordered w-full rounded hover:shadow-md"
-                            name=name.clone()
-                            value = value
-                            min = move || min
-                            step = move || step
-                            on:change = function
-                            required
-                        />
-                    }
-                },
-                Some(ComponentSize::Base) => {
-                    view! {
-                        <input type="number" class = "input input-md input-bordered w-full rounded hover:shadow-md"
-                            name=name.clone()
-                            value = value
-                            min = move || min
-                            step = move || step
-                            on:change = function
-                            required
-                        />
-                    }
-                },
-                Some(ComponentSize::Large) => {
-                    view! {
-                        <input type="number" class = "input input-lg input-bordered w-full rounded hover:shadow-md"
-                            name=name.clone()
-                            value = value
-                            min = move || min
-                            step = move || step
-                            on:change = function
-                            required
-                        />
-                    }
-                },
+            view! {
+                <input type="number" class=size_class
+                    name=name.clone()
+                    value = value
+                    min = move || min
+                    step = move || step
+                    on:change = function
+                    required
+                />
             }
         }
     };

@@ -1,10 +1,11 @@
-use crate::components::common::components::input::{InputNumber, InputPassword, InputText};
+use crate::components::common::components::{common_attributes::{ComponentSize, ComponentType}, input::{InputNumber, InputPassword, InputText}, range_selector::RangeSelector};
 use leptos::*;
 
 #[island]
 pub fn ComponentTesting() -> impl IntoView {
     let selected_component = create_rw_signal("inputtext".to_string());
     let value = create_rw_signal(0.0);
+    let range_signal = create_rw_signal(0.0);
 
     let render_component = move || match selected_component.get().as_str() {
         "inputtext" => view! {
@@ -31,6 +32,18 @@ pub fn ComponentTesting() -> impl IntoView {
                 value=value
                 min=1.0
                 step=0.01
+            />
+        },
+
+        "rangeselector" => view! {
+            <RangeSelector
+                name="rangeselector".to_string()
+                label="Range Selector".to_string()
+                step=2.0
+                min=1.0
+                max=20.0
+                value_signal=range_signal
+                component_type=ComponentType::Success
             />
         },
         _ => view! {
@@ -60,6 +73,7 @@ pub fn ComponentTesting() -> impl IntoView {
                             <option value="inputtext">Input Text</option>
                             <option value="inputpassword">Input Password</option>
                             <option value="inputnumber">Input Number</option>
+                            <option value="rangeselector">Range Selector</option>
                         </select>
                     </div>
                 </div>
