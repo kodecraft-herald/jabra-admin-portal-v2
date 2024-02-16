@@ -1,5 +1,6 @@
-use crate::components::common::components::{common_attributes::{ComponentSize, ComponentType}, input::{InputNumber, InputPassword, InputText}, range_selector::RangeSelector};
+use crate::components::common::components::{common_attributes::ComponentType, input::{InputNumber, InputPassword, InputText}, range_selector::RangeSelector};
 use leptos::*;
+use h_modals::{attributes::enums::{ComponentStatus, Position}, confirm_modal::components::ConfirmModal, status_modal::components::StatusModal};
 
 #[island]
 pub fn ComponentTesting() -> impl IntoView {
@@ -46,6 +47,14 @@ pub fn ComponentTesting() -> impl IntoView {
                 component_type=ComponentType::Success
             />
         },
+
+        "dialogbox" => view! {
+            <DialogBoxComponent/>
+        }.into_view(),
+
+        "confirmmodal" => view! {
+            <ConfirmModalComponent/>
+        }.into_view(),
         _ => view! {
             <h1>Select a component to render.</h1>
         }
@@ -74,6 +83,8 @@ pub fn ComponentTesting() -> impl IntoView {
                             <option value="inputpassword">Input Password</option>
                             <option value="inputnumber">Input Number</option>
                             <option value="rangeselector">Range Selector</option>
+                            <option value="dialogbox">Dialog Box</option>
+                            <option value="confirmmodal">Confirm Modal</option>
                         </select>
                     </div>
                 </div>
@@ -105,4 +116,111 @@ pub fn ComponentTesting() -> impl IntoView {
             </div>
         </div>
     }
+}
+
+#[component]
+pub fn DialogBoxComponent() -> impl IntoView {
+    let success_modal = create_rw_signal(false);
+    let error_modal = create_rw_signal(false);
+    let info_modal = create_rw_signal(false);
+    let warning_modal = create_rw_signal(false);
+    let neutral_modal = create_rw_signal(false);
+
+    view! {
+        <div class="grid grid-cols-3 gap-4">
+            <button class = "btn btn-sm btn-success" on:click = move |_| success_modal.set(true)>Success Modal</button>
+            <button class = "btn btn-sm btn-error" on:click = move |_| error_modal.set(true)>Error Modal</button>
+            <button class = "btn btn-sm btn-warning" on:click = move |_| warning_modal.set(true)>Warning Modal</button>
+            <button class = "btn btn-sm btn-info" on:click = move |_| info_modal.set(true)>Info Modal</button>
+            <button class = "btn btn-sm btn-neutral" on:click = move |_| neutral_modal.set(true)>Neutral Modal</button>
+        </div>
+        <StatusModal
+            signal=success_modal
+            title="SUCCESS!".to_string()
+            description="Trade quote approval is successful".to_string()
+            status=ComponentStatus::Success
+            position=Position::TopLeft
+        />
+        <StatusModal
+            signal=error_modal
+            title="ERROR!".to_string()
+            description="This is an error description".to_string()
+            status=ComponentStatus::Error
+            position=Position::TopMiddle
+        />
+        <StatusModal
+            signal=warning_modal
+            title="WARNING!".to_string()
+            description="This is a warning description.".to_string()
+            status=ComponentStatus::Warning
+            position=Position::TopRight
+        />
+        <StatusModal
+            signal=info_modal
+            title="INFO!".to_string()
+            description="This is an info description".to_string()
+            status=ComponentStatus::Info
+            position=Position::Middle
+            text_color=ComponentStatus::Info
+            button_status=ComponentStatus::Info
+        />
+        <StatusModal
+            signal=neutral_modal
+            title="NEUTRAL!".to_string()
+            description="This is a neutral description".to_string()
+            status=ComponentStatus::Neutral
+            position=Position::BottomMiddle
+            text_color=ComponentStatus::Neutral
+        />
+    }
+}
+
+#[component]
+pub fn ConfirmModalComponent() -> impl IntoView {
+    let signal = create_rw_signal(false);
+    let action = create_action(move |_input: &()| async move {
+        let result = server_function().await;
+        match result {
+            Ok(result) => {
+                log::info!("Action Successful!");
+                signal.set(false);
+                return result
+            },
+            Err(err) => {
+                log::error!("Server Function Error: {:?}", err);
+                signal.set(false);
+                return format!("Server Function Error: {:?}", err);
+            }
+        }
+    });
+    let pending_signal = action.pending();
+
+
+    let confirm_modal_fn = move || {
+        log::info!("Confirm Modal Function");
+        action.dispatch(());
+    };
+
+    view! {
+        <button class = "btn btn-sm btn-success" on:click = move |_| signal.set(true)>Confirm Modal</button>
+        <ConfirmModal
+            signal = signal
+            title = "APPROVE?".to_string()
+            description = "Are you sure you want to approve?".to_string()
+            function = confirm_modal_fn
+            pending_signal = pending_signal
+        />
+    }
+}
+
+pub async fn server_function() -> Result<String, ServerFnError>{
+    use gloo_timers::future::sleep;
+    use std::time::Duration;
+
+    log::info!("Server Function!");
+
+    sleep(Duration::from_secs(1)).await;
+
+    return Ok(String::from("This came from a server function."))
+
 }

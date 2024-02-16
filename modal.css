@@ -1,0 +1,406 @@
+.py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.h-3{
+    height: 0.75rem;
+}
+
+.text-2xl{
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem; /* 32px */
+}
+
+.rounded-box{
+    border-radius: var(--rounded-box, 1rem);
+}
+
+.p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin: 0;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.text-black {
+    color: rgb(0 0 0);
+}
+  
+  
+.bg-error {
+    background-color: oklch(var(--er) / var(--tw-bg-opacity)) !important;
+}
+  
+.bg-success {
+    background-color: oklch(var(--su) / var(--tw-bg-opacity)) !important;
+}
+
+.bg-warning {
+    background-color: oklch(var(--wa) / var(--tw-bg-opacity)) !important;
+}
+  
+.bg-neutral {
+    background-color: oklch(var(--n) / var(--tw-bg-opacity)) !important;
+}
+  
+.blur-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 998;
+}
+
+.modal-action{
+    display: flex;
+    margin-top: 1.5rem;
+    justify-content: flex-end;
+}
+
+.modal-action > :not([hidden]) ~ :not([hidden]){
+    --tw-space-x-reverse: 0;
+    margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+    margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.modal-box {
+    background-color: oklch(var(--b1) / var(--tw-bg-opacity));
+    width: fit-content;
+}
+
+.modal-box{
+    max-height: calc(100vh - 5em);
+    grid-column-start: 1;
+    grid-row-start: 1;
+    width: 91.666667%;
+    max-width: 32rem;
+    --tw-scale-x: .9;
+    --tw-scale-y: .9;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    border-bottom-right-radius: var(--rounded-box, 1rem);
+    border-bottom-left-radius: var(--rounded-box, 1rem);
+    border-top-left-radius: var(--rounded-box, 1rem);
+    border-top-right-radius: var(--rounded-box, 1rem);
+    --tw-bg-opacity: 1;
+    background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+    padding: 1.5rem;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    transition-duration: 200ms;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.modal-open .modal-box,
+.modal-toggle:checked + .modal .modal-box,
+.modal:target .modal-box,
+.modal[open] .modal-box{
+  --tw-translate-y: 0px;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+/* ==================== TOP LEFT ==================== */
+
+.modal-top-left{
+    position: fixed;
+    top: 8%;
+    left: 5%;
+    transform: translateX(-5%);
+}
+
+.modal-top-left :where(.modal-box){
+    width: 100%;
+    max-width: none;
+    --tw-translate-y: -2.5rem;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    border-bottom-right-radius: var(--rounded-box, 1rem);
+    border-bottom-left-radius: var(--rounded-box, 1rem);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.modal-top-left{
+    place-items: start;
+}
+  
+.modal-top-left :where(.modal-box){
+    width: 100%;
+    max-width: none;
+    --tw-translate-y: -2.5rem;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    border-bottom-right-radius: var(--rounded-box, 1rem);
+    border-bottom-left-radius: var(--rounded-box, 1rem);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+/* ==================== TOP MIDDLE ==================== */
+
+.modal-top-middle{
+    position: fixed;
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.modal-top-middle :where(.modal-box){
+    width: 100%;
+    max-width: none;
+    --tw-translate-y: -2.5rem;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    border-bottom-right-radius: var(--rounded-box, 1rem);
+    border-bottom-left-radius: var(--rounded-box, 1rem);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.modal-top-middle{
+    place-items: start;
+}
+  
+.modal-top-middle :where(.modal-box){
+    width: 100%;
+    max-width: none;
+    --tw-translate-y: -2.5rem;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    border-bottom-right-radius: var(--rounded-box, 1rem);
+    border-bottom-left-radius: var(--rounded-box, 1rem);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+/* ==================== TOP RIGHT ==================== */
+
+.modal-top-right{
+    position: fixed;
+    top: 8%;
+    right: 5%;
+    transform: translateX(-5%);
+}
+
+.modal-top-right :where(.modal-box){
+    width: 100%;
+    max-width: none;
+    --tw-translate-y: -2.5rem;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    border-bottom-right-radius: var(--rounded-box, 1rem);
+    border-bottom-left-radius: var(--rounded-box, 1rem);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.modal-top-right{
+    place-items: start;
+}
+  
+.modal-top-right :where(.modal-box){
+    width: 100%;
+    max-width: none;
+    --tw-translate-y: -2.5rem;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    border-bottom-right-radius: var(--rounded-box, 1rem);
+    border-bottom-left-radius: var(--rounded-box, 1rem);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+/* ==================== MIDDLE ==================== */
+
+.modal-middle{
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.modal-middle :where(.modal-box){
+    width: 100%;
+    max-width: none;
+    --tw-translate-y: -2.5rem;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    border-bottom-right-radius: var(--rounded-box, 1rem);
+    border-bottom-left-radius: var(--rounded-box, 1rem);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+  
+.modal-middle{
+    place-items: start;
+}
+  
+.modal-middle :where(.modal-box){
+    width: 100%;
+    max-width: none;
+    --tw-translate-y: -2.5rem;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    border-bottom-right-radius: var(--rounded-box, 1rem);
+    border-bottom-left-radius: var(--rounded-box, 1rem);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.modal-middle{
+    place-items: start;
+}
+
+.modal-middle :where(.modal-box){
+    width: 100%;
+    max-width: none;
+    --tw-translate-y: -2.5rem;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    border-bottom-right-radius: var(--rounded-box, 1rem);
+    border-bottom-left-radius: var(--rounded-box, 1rem);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+/* ==================== BOTTOM LEFT ==================== */
+
+.modal-bottom-left{
+    position: fixed;
+    bottom: 8%;
+    left: 5%;
+    transform: translateX(-5%);
+}
+
+.modal-bottom-left :where(.modal-box){
+    width: 100%;
+    max-width: none;
+    --tw-translate-y: -2.5rem;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    border-bottom-right-radius: var(--rounded-box, 1rem);
+    border-bottom-left-radius: var(--rounded-box, 1rem);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.modal-bottom-left{
+    place-items: start;
+}
+  
+.modal-bottom-left :where(.modal-box){
+    width: 100%;
+    max-width: none;
+    --tw-translate-y: -2.5rem;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    border-bottom-right-radius: var(--rounded-box, 1rem);
+    border-bottom-left-radius: var(--rounded-box, 1rem);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+/* ==================== BOTTOM MIDDLE ==================== */
+
+.modal-bottom-middle{
+    position: fixed;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.modal-bottom-middle :where(.modal-box){
+    width: 100%;
+    max-width: none;
+    --tw-translate-y: -2.5rem;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    border-bottom-right-radius: var(--rounded-box, 1rem);
+    border-bottom-left-radius: var(--rounded-box, 1rem);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.modal-bottom-middle{
+    place-items: start;
+}
+  
+.modal-bottom-middle :where(.modal-box){
+    width: 100%;
+    max-width: none;
+    --tw-translate-y: -2.5rem;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    border-bottom-right-radius: var(--rounded-box, 1rem);
+    border-bottom-left-radius: var(--rounded-box, 1rem);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+/* ==================== BOTTOM RIGHT ==================== */
+
+.modal-bottom-right{
+    position: fixed;
+    bottom: 8%;
+    right: 5%;
+    transform: translateX(-5%);
+}
+
+.modal-bottom-right :where(.modal-box){
+    width: 100%;
+    max-width: none;
+    --tw-translate-y: -2.5rem;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    border-bottom-right-radius: var(--rounded-box, 1rem);
+    border-bottom-left-radius: var(--rounded-box, 1rem);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.modal-bottom-right{
+    place-items: start;
+}
+  
+.modal-bottom-right :where(.modal-box){
+    width: 100%;
+    max-width: none;
+    --tw-translate-y: -2.5rem;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    border-bottom-right-radius: var(--rounded-box, 1rem);
+    border-bottom-left-radius: var(--rounded-box, 1rem);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
