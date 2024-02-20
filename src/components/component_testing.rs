@@ -1,6 +1,6 @@
 use crate::components::common::components::{common_attributes::ComponentType, input::{InputNumber, InputPassword, InputText}, range_selector::RangeSelector};
 use leptos::*;
-use h_modals::{attributes::enums::{ComponentStatus, Position}, confirm_modal::components::ConfirmModal, status_modal::components::StatusModal};
+use h_modals::{attributes::enums::{ComponentStatus, Position}, confirm_modal::components::ConfirmModal, status_modal::components::StatusModal, status_modal_fn::components::StatusModalWithFunction};
 
 #[island]
 pub fn ComponentTesting() -> impl IntoView {
@@ -126,6 +126,11 @@ pub fn DialogBoxComponent() -> impl IntoView {
     let warning_modal = create_rw_signal(false);
     let neutral_modal = create_rw_signal(false);
 
+    let on_click_fn = move || {
+        neutral_modal.set(false);
+        log::info!("Do something!");
+    };
+
     view! {
         <div class="grid grid-cols-3 gap-4">
             <button class = "btn btn-sm btn-success" on:click = move |_| success_modal.set(true)>Success Modal</button>
@@ -164,13 +169,14 @@ pub fn DialogBoxComponent() -> impl IntoView {
             text_color=ComponentStatus::Info
             button_status=ComponentStatus::Info
         />
-        <StatusModal
+        <StatusModalWithFunction
             signal=neutral_modal
             title="NEUTRAL!".to_string()
             description="This is a neutral description".to_string()
             status=ComponentStatus::Neutral
             position=Position::BottomMiddle
             text_color=ComponentStatus::Neutral
+            function=on_click_fn
         />
     }
 }

@@ -1024,9 +1024,9 @@ dependencies = [
 
 [[package]]
 name = "h_modals"
-version = "0.1.6"
+version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "70edcdb864e116c9c9a3de49831e6cb74053d8203d5819718af770aed543b39c"
+checksum = "3ff18fbbbb319e79f5ebefd8954b3b7896a981dea0959e0d16befd986a357b18"
 dependencies = [
  "leptos",
 ]
