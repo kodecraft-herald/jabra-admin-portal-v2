@@ -118,7 +118,7 @@ pub fn ComponentTesting() -> impl IntoView {
     }
 }
 
-#[component]
+#[island]
 pub fn DialogBoxComponent() -> impl IntoView {
     let success_modal = create_rw_signal(false);
     let error_modal = create_rw_signal(false);
@@ -181,7 +181,7 @@ pub fn DialogBoxComponent() -> impl IntoView {
     }
 }
 
-#[component]
+#[island]
 pub fn ConfirmModalComponent() -> impl IntoView {
     let signal = create_rw_signal(false);
     let action = create_action(move |_input: &()| async move {
