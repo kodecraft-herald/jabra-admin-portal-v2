@@ -21,7 +21,8 @@ pub fn App() -> impl IntoView {
     // Provides context that manages stylesheets, titles, meta tags, etc.
     provide_meta_context();
 
-    let color_scheme = use_context::<crate::providers::color_scheme::ColorScheme>().expect("Failed to find ColorScheme");
+    let color_scheme = use_context::<crate::providers::color_scheme::ColorScheme>()
+        .expect("Failed to find ColorScheme");
     let theme = move || match color_scheme.prefers_dark.get() {
         true => "darkpurple",
         false => "lightpurple",

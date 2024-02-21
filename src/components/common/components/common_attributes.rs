@@ -1,11 +1,11 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Serialize, Deserialize)]
-pub enum ComponentSize{
-	ExtraSmall,
-	Small,
-	Base, //Default
-	Large
+pub enum ComponentSize {
+    ExtraSmall,
+    Small,
+    Base, //Default
+    Large,
 }
 
 impl Default for ComponentSize {
@@ -14,12 +14,12 @@ impl Default for ComponentSize {
     }
 }
 
-pub enum ComponentType{
-	Info,
-	Success,
-	Neutral, //Default
-	Warning,
-	Error
+pub enum ComponentType {
+    Info,
+    Success,
+    Neutral, //Default
+    Warning,
+    Error,
 }
 
 impl Default for ComponentType {

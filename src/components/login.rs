@@ -1,8 +1,12 @@
 use leptos::*;
 use leptos_router::ActionForm;
 
-use crate::{app::{HasError, Refetcher}, components::common::components::input::{InputPassword, InputText}};
+use crate::{
+    app::{HasError, Refetcher},
+    components::common::components::input::{InputPassword, InputText},
+};
 
+#[allow(non_snake_case)]
 #[component]
 pub fn Login() -> impl IntoView {
     view! {
@@ -28,7 +32,7 @@ pub fn Login() -> impl IntoView {
                     </div>
                 </div>
             </div>
-            <div class = "h-full lg:flex items-center hidden lg:block lg:col-span-2">
+            <div class = "h-full lg:flex items-center hidden lg:col-span-2">
                 <div class = "flex flex-col">
                     <div class="flex items-center">
                         <h1 class="text-6xl font-base">

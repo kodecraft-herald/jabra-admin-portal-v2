@@ -1,9 +1,9 @@
+pub mod common;
+pub mod component_testing;
 pub mod content;
+pub mod dark_mode_toggle;
 pub mod login;
 pub mod models;
 pub mod page;
 pub mod sidebar;
 pub mod wrapper;
-pub mod dark_mode_toggle;
-pub mod common;
-pub mod component_testing;

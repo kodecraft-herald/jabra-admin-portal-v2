@@ -14,7 +14,7 @@ const UNSELECTED_CLASS_MOBILE: &str = "flex justify-center rounded-xl p-2";
 pub fn Sidebar() -> impl IntoView {
     let location = use_location().pathname;
 
-    let toogle =  RwSignal::new(true);
+    let toogle = RwSignal::new(true);
     create_effect(move |_| {
         log::info!("toogle: {}", toogle.get());
     });
@@ -116,10 +116,8 @@ pub fn Anchor(
     location: String,
     anchor_url: String,
     title: String,
-    #[prop(optional)]
-    sub_anchor: bool,
-    #[prop(optional)]
-    icon_title: String,
+    #[prop(optional)] sub_anchor: bool,
+    #[prop(optional)] icon_title: String,
 ) -> impl IntoView {
     let is_selected = move |is_selected: bool, mobile: bool| {
         if mobile {

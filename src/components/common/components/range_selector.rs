@@ -5,18 +5,15 @@ use super::common_attributes::{ComponentSize, ComponentType};
 #[allow(non_snake_case)]
 #[component]
 pub fn RangeSelector(
-	name: String,
-	label: String,
-	step: f64,
-	min: f64,
-	max: f64,
-    #[prop(optional)]
-	size: Option<ComponentSize>,
-    #[prop(optional)]
-	component_type: Option<ComponentType>,
-	value_signal: RwSignal<f64>, // For setting the value inside on:change
+    name: String,
+    label: String,
+    step: f64,
+    min: f64,
+    max: f64,
+    #[prop(optional)] size: Option<ComponentSize>,
+    #[prop(optional)] component_type: Option<ComponentType>,
+    value_signal: RwSignal<f64>, // For setting the value inside on:change
 ) -> impl IntoView {
-
     let type_class = match component_type {
         None => "",
         Some(ComponentType::Info) => "info",
@@ -61,7 +58,7 @@ pub fn RangeSelector(
                 value_signal.set(val);
             }
         />
-        
+
         <div class = format!("w-full flex flex-grow justify-between font-light {}", text_class)>
             <span>{format!("{min}")}</span>
             <span>{format!("{max}")}</span>

@@ -13,7 +13,7 @@ pub fn get_input_size_class(size: ComponentSize, base_class: String) -> String {
 
 pub fn join_icon(component: View, icon: String, icon_size: ComponentSize) -> View {
     if icon.is_empty() {
-        return component.into_view()
+        return component.into_view();
     } else {
         let icon_size = match icon_size {
             ComponentSize::ExtraSmall => "h-3 w-3".to_string(),
@@ -31,7 +31,8 @@ pub fn join_icon(component: View, icon: String, icon_size: ComponentSize) -> Vie
                 </div>
                 {component}
             </div>
-        }.into_view()
+        }
+        .into_view()
     }
 }
 

@@ -1,7 +1,9 @@
 use chrono::{DateTime, Utc};
 use leptos::*;
 
-use crate::components::common::functions::helpers::{change_day, extract_date_as_string, get_input_size_class, join_icon};
+use crate::components::common::functions::helpers::{
+    change_day, extract_date_as_string, get_input_size_class, join_icon,
+};
 
 use super::common_attributes::ComponentSize;
 
@@ -10,25 +12,20 @@ use super::common_attributes::ComponentSize;
 pub fn InputText(
     name: String,
     label: String,
-    #[prop(optional)]
-    placeholder: String,
-    #[prop(optional)]
-    size: ComponentSize,
+    #[prop(optional)] placeholder: String,
+    #[prop(optional)] size: ComponentSize,
     // #[prop(optional)]
     // tab_index: u8,
-    #[prop(optional)]
-    custom_class: String,
-    #[prop(optional)]
-    icon: String,
+    #[prop(optional)] custom_class: String,
+    #[prop(optional)] icon: String,
 ) -> impl IntoView {
-
     let base_class = "input input-bordered w-full rounded hover:shadow-md".to_string();
 
     let size_class = get_input_size_class(size.clone(), base_class.clone());
 
     let input_component = if custom_class.is_empty() {
         view! {
-            <input 
+            <input
                 type="text"
                 name=name.clone()
                 placeholder=placeholder
@@ -36,10 +33,11 @@ pub fn InputText(
                 autocomplete
                 required
             />
-        }.into_view()
+        }
+        .into_view()
     } else {
         view! {
-            <input 
+            <input
                 type="text"
                 name=name.clone()
                 placeholder=placeholder
@@ -47,7 +45,8 @@ pub fn InputText(
                 autocomplete
                 required
             />
-        }.into_view()
+        }
+        .into_view()
     };
 
     let input_component = join_icon(input_component, icon.clone(), size.clone());
@@ -60,22 +59,17 @@ pub fn InputText(
     }
 }
 
-
 #[allow(non_snake_case)]
 #[component]
 pub fn InputPassword(
     name: String,
     label: String,
-    #[prop(optional)]
-    placeholder: String,
-    #[prop(optional)]
-    size: ComponentSize,
+    #[prop(optional)] placeholder: String,
+    #[prop(optional)] size: ComponentSize,
     // #[prop(optional)]
     // tab_index: u8,
-    #[prop(optional)]
-    custom_class: String,
-    #[prop(optional)]
-    icon: String
+    #[prop(optional)] custom_class: String,
+    #[prop(optional)] icon: String,
 ) -> impl IntoView {
     let base_class = "input input-bordered w-full rounded hover:shadow-md".to_string();
 
@@ -83,7 +77,7 @@ pub fn InputPassword(
 
     let input_component = if custom_class.is_empty() {
         view! {
-            <input 
+            <input
                 type="password"
                 name=name.clone()
                 placeholder=placeholder
@@ -91,10 +85,11 @@ pub fn InputPassword(
                 autocomplete
                 required
             />
-        }.into_view()
+        }
+        .into_view()
     } else {
         view! {
-            <input 
+            <input
                 type="password"
                 name=name.clone()
                 placeholder=placeholder
@@ -102,7 +97,8 @@ pub fn InputPassword(
                 autocomplete
                 required
             />
-        }.into_view()
+        }
+        .into_view()
     };
 
     let input_component = join_icon(input_component, icon.clone(), size.clone());
@@ -119,16 +115,13 @@ pub fn InputPassword(
 #[component]
 pub fn InputNumber(
     name: String,
-	label: String,
-    #[prop(optional)]
-	size: ComponentSize,
-	value: RwSignal<f64>,
-	min: f64,
-	step: f64,
-	#[prop(optional)]
-	custom_class: String
+    label: String,
+    #[prop(optional)] size: ComponentSize,
+    value: RwSignal<f64>,
+    min: f64,
+    step: f64,
+    #[prop(optional)] custom_class: String,
 ) -> impl IntoView {
-
     let function = move |e| {
         let val = event_target_value(&e).parse::<f64>().unwrap_or_default();
         value.set(val);
@@ -140,8 +133,8 @@ pub fn InputNumber(
 
     let input_component = if custom_class.is_empty() {
         view! {
-            <input 
-                type="number" 
+            <input
+                type="number"
                 class = size_class
                 name=name.clone()
                 value = value
@@ -150,11 +143,12 @@ pub fn InputNumber(
                 on:change = function
                 required
             />
-        }.into_view()
+        }
+        .into_view()
     } else {
         view! {
-            <input 
-                type="number" 
+            <input
+                type="number"
                 class = custom_class.clone()
                 name=name.clone()
                 value = value
@@ -163,7 +157,8 @@ pub fn InputNumber(
                 on:change = function
                 required
             />
-        }.into_view()
+        }
+        .into_view()
     };
 
     view! {
@@ -176,21 +171,16 @@ pub fn InputNumber(
 
 #[allow(non_snake_case)]
 #[component]
-pub fn InputDatePicker (
-	name: String,
-	label: String,
+pub fn InputDatePicker(
+    name: String,
+    label: String,
     date: RwSignal<DateTime<Utc>>, // UTC DateTime | Is used as reference to get the formatted date
-    value: RwSignal<String>, // String form of `date` | Is displayed in the input field
-    #[prop(optional)]
-	size: ComponentSize,
-    #[prop(optional)]
-	disabled: bool,
-	#[prop(optional)]
-	min: String, // Needs to be in the format "YYYY-MM-DD"
-	#[prop(optional)]
-	custom_class: String
+    value: RwSignal<String>,       // String form of `date` | Is displayed in the input field
+    #[prop(optional)] size: ComponentSize,
+    #[prop(optional)] disabled: bool,
+    #[prop(optional)] min: String, // Needs to be in the format "YYYY-MM-DD"
+    #[prop(optional)] custom_class: String,
 ) -> impl IntoView {
-
     let date_str_value = move || extract_date_as_string(date.get());
 
     let function = move |e| {
@@ -206,30 +196,32 @@ pub fn InputDatePicker (
 
     let input_component = if custom_class.is_empty() {
         view! {
-            <input 
+            <input
                 class = size_class
                 type="date"
                 name=name.clone()
                 prop:value=value
                 min=min
-                prop:disabled = disabled 
+                prop:disabled = disabled
                 on:change = function
                 required
             />
-        }.into_view()
+        }
+        .into_view()
     } else {
         view! {
-            <input 
+            <input
                 class = custom_class.clone()
                 type="date"
                 name=name.clone()
                 prop:value=value
                 min=min
-                prop:disabled = disabled 
+                prop:disabled = disabled
                 on:change = function
                 required
             />
-        }.into_view()
+        }
+        .into_view()
     };
 
     view! {

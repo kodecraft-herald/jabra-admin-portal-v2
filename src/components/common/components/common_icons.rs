@@ -1,5 +1,6 @@
 use leptos::*;
 
+#[allow(non_snake_case)]
 #[component]
 pub fn Icon(title: String, size: String) -> impl IntoView {
     match title.as_str() {

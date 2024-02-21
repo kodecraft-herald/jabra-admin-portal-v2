@@ -2,7 +2,10 @@ use leptos::*;
 use leptos_router::use_location;
 
 use crate::components::{
-    component_testing::ComponentTesting, content::{Content1, Content2}, login::Login, sidebar::Sidebar
+    component_testing::ComponentTesting,
+    content::{Content1, Content2},
+    login::Login,
+    sidebar::Sidebar,
 };
 
 #[component]
