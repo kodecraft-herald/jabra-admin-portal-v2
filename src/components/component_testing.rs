@@ -1,4 +1,5 @@
-use crate::components::common::components::{common_attributes::ComponentType, input::{InputNumber, InputPassword, InputText}, range_selector::RangeSelector};
+use crate::components::common::{components::{common_attributes::ComponentType, input::{InputDatePicker, InputNumber, InputPassword, InputText}, range_selector::RangeSelector}, functions::helpers::extract_date_as_string};
+use chrono::Utc;
 use leptos::*;
 use h_modals::{attributes::enums::{ComponentStatus, Position}, confirm_modal::components::ConfirmModal, status_modal::components::StatusModal, status_modal_fn::components::StatusModalWithFunction};
 
@@ -6,7 +7,10 @@ use h_modals::{attributes::enums::{ComponentStatus, Position}, confirm_modal::co
 pub fn ComponentTesting() -> impl IntoView {
     let selected_component = create_rw_signal("inputtext".to_string());
     let value = create_rw_signal(0.0);
+    let value_str = create_rw_signal("".to_string());
     let range_signal = create_rw_signal(0.0);
+    let date_now = create_rw_signal(Utc::now());
+    let min_date = move || extract_date_as_string(date_now.get());
 
     let render_component = move || match selected_component.get().as_str() {
         "inputtext" => view! {
@@ -33,6 +37,16 @@ pub fn ComponentTesting() -> impl IntoView {
                 value=value
                 min=1.0
                 step=0.01
+            />
+        },
+
+        "inputdatepicker" => view! {
+            <InputDatePicker
+                name="inputdatepicker".to_string()
+                label="Date Picker".to_string()
+                date=date_now
+                value=value_str
+                min=min_date()
             />
         },
 
@@ -82,6 +96,7 @@ pub fn ComponentTesting() -> impl IntoView {
                             <option value="inputtext">Input Text</option>
                             <option value="inputpassword">Input Password</option>
                             <option value="inputnumber">Input Number</option>
+                            <option value="inputdatepicker">Date Picker</option>
                             <option value="rangeselector">Range Selector</option>
                             <option value="dialogbox">Dialog Box</option>
                             <option value="confirmmodal">Confirm Modal</option>
