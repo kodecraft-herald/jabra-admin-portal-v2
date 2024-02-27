@@ -15,6 +15,7 @@ pub struct HasError(pub RwSignal<bool>);
 #[derive(Copy, Clone)]
 pub struct CheckCookie(pub Resource<bool, Result<bool, ServerFnError>>);
 
+#[allow(non_snake_case)]
 #[component]
 pub fn App() -> impl IntoView {
     _ = crate::providers::color_scheme::provide_color_scheme();
@@ -46,7 +47,7 @@ pub fn App() -> impl IntoView {
 
         // injects a stylesheet into the document <head>
         // id=leptos means cargo-leptos will hot-reload this stylesheet
-        <Stylesheet id="leptos" href="/pkg/islands-arch-test.css"/>
+        <Stylesheet id="leptos" href="/pkg/jabra-admin-portal-v2.css"/>
 
         // sets the document title
         <Title text="Welcome to Leptos"/>

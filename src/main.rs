@@ -2,8 +2,8 @@
 #[tokio::main]
 async fn main() {
     use axum::{routing::post, Router};
-    use islands_arch_test::app::*;
-    use islands_arch_test::fileserv::file_and_error_handler;
+    use jabra_admin_portal_v2::app::*;
+    use jabra_admin_portal_v2::fileserv::file_and_error_handler;
     use leptos::*;
     use leptos_axum::{generate_route_list, LeptosRoutes};
 
