@@ -1,21 +1,10 @@
-use crate::components::common::{
-    components::{
-        common_attributes::ComponentType,
-        input::{InputDatePicker, InputNumber, InputPassword, InputText},
-        range_selector::RangeSelector,
-    },
-    functions::helpers::extract_date_as_string,
-};
+use crate::components::common::{components::{common_attributes::ComponentType, input::{InputDatePicker, InputNumber, InputPassword, InputText}, range_selector::RangeSelector}, functions::helpers::extract_date_as_string};
 use chrono::Utc;
-use h_modals::{
-    attributes::enums::{ComponentStatus, Position},
-    confirm_modal::components::ConfirmModal,
-    status_modal::components::StatusModal,
-    status_modal_fn::components::StatusModalWithFunction,
-};
 use leptos::*;
+use h_modals::{attributes::enums::{ComponentStatus, Position}, confirm_modal::components::ConfirmModal, status_modal::components::StatusModal, status_modal_fn::components::StatusModalWithFunction};
 
-#[island]
+#[allow(non_snake_case)]
+#[component]
 pub fn ComponentTesting() -> impl IntoView {
     let selected_component = create_rw_signal("inputtext".to_string());
     let value = create_rw_signal(0.0);
@@ -76,13 +65,11 @@ pub fn ComponentTesting() -> impl IntoView {
 
         "dialogbox" => view! {
             <DialogBoxComponent/>
-        }
-        .into_view(),
+        }.into_view(),
 
         "confirmmodal" => view! {
             <ConfirmModalComponent/>
-        }
-        .into_view(),
+        }.into_view(),
         _ => view! {
             <h1>Select a component to render.</h1>
         }
@@ -127,27 +114,12 @@ pub fn ComponentTesting() -> impl IntoView {
                     </div>
                 </div>
             </div>
-            <div class="grid grid-cols-2 items-center mt-4 gap-4">
-                <div></div>
-                <div class="card w-full shadow-lg bg-base-100">
-                    <div class="card-body">
-                        <span class="label-text">Properties</span>
-                        <div class="mockup-code bg-base-200">
-                            <pre class="label-text"><code class="text-primary">name</code> : <code class="label-text">email</code></pre>
-                            <pre class="label-text"><code class="text-primary">label</code> : <code class="label-text">Email</code></pre>
-                            <pre class="label-text"><code class="text-warning">placeholder</code> : <code class="label-text">None</code></pre>
-                            <pre class="label-text"><code class="text-warning">size</code> : <code class="label-text">None</code></pre>
-                            <pre class="label-text"><code class="text-warning">custom_class</code> : <code class="label-text">input input-bordered w-full rounded hover:shadow-md</code></pre>
-                            <pre class="label-text"><code class="text-warning">icon</code> : <code class="label-text">Email</code></pre>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     }
 }
 
-#[island]
+#[allow(non_snake_case)]
+#[component]
 pub fn DialogBoxComponent() -> impl IntoView {
     let success_modal = create_rw_signal(false);
     let error_modal = create_rw_signal(false);
@@ -210,7 +182,8 @@ pub fn DialogBoxComponent() -> impl IntoView {
     }
 }
 
-#[island]
+#[allow(non_snake_case)]
+#[component]
 pub fn ConfirmModalComponent() -> impl IntoView {
     let signal = create_rw_signal(false);
     let action = create_action(move |_input: &()| async move {
@@ -219,8 +192,8 @@ pub fn ConfirmModalComponent() -> impl IntoView {
             Ok(result) => {
                 log::info!("Action Successful!");
                 signal.set(false);
-                return result;
-            }
+                return result
+            },
             Err(err) => {
                 log::error!("Server Function Error: {:?}", err);
                 signal.set(false);
@@ -229,6 +202,7 @@ pub fn ConfirmModalComponent() -> impl IntoView {
         }
     });
     let pending_signal = action.pending();
+
 
     let confirm_modal_fn = move || {
         log::info!("Confirm Modal Function");
@@ -247,7 +221,7 @@ pub fn ConfirmModalComponent() -> impl IntoView {
     }
 }
 
-pub async fn server_function() -> Result<String, ServerFnError> {
+pub async fn server_function() -> Result<String, ServerFnError>{
     use gloo_timers::future::sleep;
     use std::time::Duration;
 
@@ -255,5 +229,6 @@ pub async fn server_function() -> Result<String, ServerFnError> {
 
     sleep(Duration::from_secs(1)).await;
 
-    return Ok(String::from("This came from a server function."));
+    return Ok(String::from("This came from a server function."))
+
 }

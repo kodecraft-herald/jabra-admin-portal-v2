@@ -7,7 +7,7 @@ module.exports = {
           poppins: ["Poppins", "sans-serif"]
       },
       colors: {
-        'deep': 'rgba(11,9,26,255)',
+        'deep': '#191828',
         'light': '#252434',
       },
     },

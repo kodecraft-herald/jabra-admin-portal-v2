@@ -1,5 +1,6 @@
 use leptos::*;
 
+#[allow(non_snake_case)]
 #[component]
 pub fn Content1() -> impl IntoView {
     view! {
@@ -11,6 +12,7 @@ pub fn Content1() -> impl IntoView {
     }
 }
 
+#[allow(non_snake_case)]
 #[component]
 pub fn Content2() -> impl IntoView {
     view! {

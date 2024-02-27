@@ -7,3 +7,4 @@ pub mod models;
 pub mod page;
 pub mod sidebar;
 pub mod wrapper;
+pub mod quote_builder;

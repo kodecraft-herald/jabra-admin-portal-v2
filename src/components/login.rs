@@ -49,7 +49,8 @@ pub fn Login() -> impl IntoView {
     }
 }
 
-#[island]
+#[allow(non_snake_case)]
+#[component]
 pub fn LoginIsland(children: Children) -> impl IntoView {
     let login_action: Action<DirectusLogin, Result<bool, ServerFnError>> =
         create_server_action::<DirectusLogin>();

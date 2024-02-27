@@ -6,6 +6,41 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (min-width: 924px){
+    .px924\:block{
+      display: block;
+    }
+  
+    .px924\:flex{
+      display: flex;
+    }
+  
+    .px924\:hidden{
+      display: none;
+    }
+  
+    .px924\:basis-1\/6{
+      flex-basis: 16.666667%;
+    }
+  
+    .px924\:translate-y-0{
+      --tw-translate-y: 0px;
+      transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    }
+  
+    .px924\:flex-nowrap{
+      flex-wrap: nowrap;
+    }
+  
+    .px924\:justify-start{
+      justify-content: flex-start;
+    }
+}
+
+.h-104 {
+    min-height: 26rem;
+}
+
 .offset-clicked {
     --handleoffset: -1.5rem;
 }
@@ -57,3 +92,43 @@
     /* z-index: 5; */
     pointer-events: none;
 }
+
+/* .dev-stamp-sm {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    font-size: 5rem;
+    line-height: 1;
+    opacity: 10%;
+    transform: rotate(-30deg) translateX(-55%);
+    pointer-events: none;
+    z-index: 999;
+}
+  
+@media (min-width: 885){
+    .md\:dev-stamp-md {
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      font-size: 7rem;
+      line-height: 1;
+      opacity: 10%;
+      transform: rotate(-30deg) translateX(-45%);
+      pointer-events: none;
+      z-index: 999;
+    }
+}
+  
+@media (min-width: 1140){
+    .lg\:dev-stamp-lg {
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      font-size: 9rem;
+      line-height: 1;
+      opacity: 10%;
+      transform: rotate(-30deg) translateX(-45%);
+      pointer-events: none;
+      z-index: 999;
+    }
+} */

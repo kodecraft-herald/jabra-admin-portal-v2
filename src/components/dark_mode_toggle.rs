@@ -2,6 +2,7 @@ use crate::providers::color_scheme::ColorScheme;
 use leptos::*;
 use leptos_router::ActionForm;
 
+#[allow(non_snake_case)]
 #[component]
 pub fn DarkModeToggle() -> impl IntoView {
     let color_scheme = use_context::<ColorScheme>().expect("Failed to find ColorSchemeProvider");
@@ -14,13 +15,13 @@ pub fn DarkModeToggle() -> impl IntoView {
                 value=move || (!(color_scheme.prefers_dark)()).to_string()
             />
 
-            <label class="md:flex cursor-pointer gap-2 hidden">
+            <label class="px924:flex cursor-pointer gap-2 hidden">
                 <span class="label-text">Light</span>
                     <button type="checkbox" class = ("offset-clicked", move || (color_scheme.prefers_dark)()) class = "toggle"/>
                 <span class="label-text">Dark</span>
             </label>
 
-            <button type="submit" class = "items-center md:hidden">
+            <button type="submit" class = "items-center px924:hidden">
             {
                 move || {
                     if (color_scheme.prefers_dark)() {
