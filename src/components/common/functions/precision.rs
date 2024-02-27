@@ -2,14 +2,19 @@ use rust_decimal::Decimal;
 use serde::{Deserialize, Serialize};
 use std::str::FromStr;
 
-
 pub enum RoundType {
     Default,
     Ceiling,
-    Floor
+    Floor,
 }
 
-pub fn format_with_specs(amount: f64, tick_size: f64, order_size: f64, round_type: RoundType, allow_negative: bool) -> f64 {
+pub fn format_with_specs(
+    amount: f64,
+    tick_size: f64,
+    order_size: f64,
+    round_type: RoundType,
+    allow_negative: bool,
+) -> f64 {
     if !allow_negative {
         if amount < order_size {
             return order_size;
@@ -156,7 +161,7 @@ pub fn format_to_specs_round(amount: f64, tick_size: f64, _order_size: f64) -> f
             .parse::<f64>()
             .unwrap();
         // println!("Return floored amount");
-       
+
         rounded_value
     }
 }

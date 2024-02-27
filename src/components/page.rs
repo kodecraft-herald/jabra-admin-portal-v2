@@ -2,7 +2,11 @@ use leptos::*;
 use leptos_router::use_location;
 
 use crate::components::{
-    component_testing::ComponentTesting, content::{Content1, Content2}, login::Login, quote_builder::page::QuoteBuilder, sidebar::Sidebar
+    component_testing::ComponentTesting,
+    content::{Content1, Content2},
+    login::Login,
+    quote_builder::page::QuoteBuilder,
+    sidebar::Sidebar,
 };
 
 #[allow(non_snake_case)]

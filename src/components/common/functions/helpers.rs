@@ -1,8 +1,11 @@
 use crate::components::common::components::{common_attributes::ComponentSize, common_icons::Icon};
-use chrono::{DateTime, Duration, FixedOffset, Local, NaiveDate, NaiveDateTime, NaiveTime, TimeZone, Timelike, Utc};
+use chrono::{
+    DateTime, Duration, FixedOffset, Local, NaiveDate, NaiveDateTime, NaiveTime, TimeZone,
+    Timelike, Utc,
+};
 use currency_rs::{Currency, CurrencyOpts};
-use num_format::{Locale, ToFormattedString};
 use leptos::*;
+use num_format::{Locale, ToFormattedString};
 
 pub fn get_input_size_class(size: ComponentSize, base_class: String) -> String {
     match size {

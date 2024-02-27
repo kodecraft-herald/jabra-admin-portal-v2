@@ -45,9 +45,11 @@ pub struct CurrencyConfigurationResponse {
 
 #[server]
 pub async fn fetch_currencies() -> Result<CurrencyConfigurationResponse, ServerFnError> {
-    use crate::components::common::models::common_models::BlankRequest;
     use crate::components::common::functions::wrapper::JabraCookie;
-    use crate::components::common::functions::wrapper::{call_and_parse, get_cookie_value, HttpMethod};
+    use crate::components::common::functions::wrapper::{
+        call_and_parse, get_cookie_value, HttpMethod,
+    };
+    use crate::components::common::models::common_models::BlankRequest;
 
     let cookie = get_cookie_value("JabraOPv1_2023").await;
     let jwt_cookie = JabraCookie::decrypt(cookie.unwrap()).unwrap_or_default();

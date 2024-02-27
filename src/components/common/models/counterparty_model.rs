@@ -38,8 +38,8 @@ impl GetCounterPartiesResponse {
 
 #[server(GetCounterParties)]
 pub async fn get_counter_parties() -> Result<GetCounterPartiesResponse, ServerFnError> {
-    use crate::components::common::functions::wrapper::JabraCookie;
     use crate::components::common::functions::wrapper::get_cookie_value;
+    use crate::components::common::functions::wrapper::JabraCookie;
     use crate::components::common::functions::wrapper::{call_and_parse, HttpMethod};
 
     let cookie = get_cookie_value("JabraOPv1_2023").await;

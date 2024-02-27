@@ -157,8 +157,8 @@ pub async fn get_quotes_option(
     quote_status: String,
 ) -> Result<std::collections::HashMap<String, Vec<QuoteOption>>, ServerFnError> {
     use super::common_models::BlankRequest;
-    use crate::components::common::functions::wrapper::JabraCookie;
     use crate::components::common::functions::wrapper::get_cookie_value;
+    use crate::components::common::functions::wrapper::JabraCookie;
     use crate::components::common::functions::wrapper::{call_and_parse, HttpMethod};
     use std::collections::HashMap;
     let cookie = get_cookie_value("JabraOPv1_2023").await;
@@ -254,8 +254,8 @@ pub async fn get_quotes_option_under_24_hrs(
     end_date: String,
 ) -> Result<std::collections::HashMap<String, Vec<QuoteOption>>, ServerFnError> {
     use super::common_models::BlankRequest;
-    use crate::components::common::functions::wrapper::JabraCookie;
     use crate::components::common::functions::wrapper::get_cookie_value;
+    use crate::components::common::functions::wrapper::JabraCookie;
     use crate::components::common::functions::wrapper::{call_and_parse, HttpMethod};
     use std::collections::HashMap;
     let cookie = get_cookie_value("JabraOPv1_2023").await;
@@ -365,8 +365,7 @@ pub async fn approve_reject_quotes_option(
     // Check if token expires, this checking will be available only to actions and server action
     // Other resources will still work due to 10 minutes buffer time
     if jwt_cookie.is_expired() {
-        let refresh =
-            wrapper::refresh_token(jwt_cookie.user_id, jwt_cookie.refresh_token).await;
+        let refresh = wrapper::refresh_token(jwt_cookie.user_id, jwt_cookie.refresh_token).await;
         match refresh {
             Ok(r) => {
                 bearer = format!("Bearer {}", r.access_token);
@@ -421,8 +420,7 @@ pub async fn edit_quotes_option(
     // Check if token expires, this checking will be available only to actions and server action
     // Other resources will still work due to 10 minutes buffer time
     if jwt_cookie.is_expired() {
-        let refresh =
-            wrapper::refresh_token(jwt_cookie.user_id, jwt_cookie.refresh_token).await;
+        let refresh = wrapper::refresh_token(jwt_cookie.user_id, jwt_cookie.refresh_token).await;
         match refresh {
             Ok(r) => {
                 bearer = format!("Bearer {}", r.access_token);

@@ -1,6 +1,8 @@
 use serde::{Deserialize, Serialize};
 
-use crate::components::common::models::common_models::{Currency, CurrencyPair, OptionInstrumentSpecification};
+use crate::components::common::models::common_models::{
+    Currency, CurrencyPair, OptionInstrumentSpecification,
+};
 
 /// Struct for Futures Quote Data.
 

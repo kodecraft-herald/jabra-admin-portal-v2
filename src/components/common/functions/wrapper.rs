@@ -1,5 +1,5 @@
-use leptos::*;
 use crate::errors::JabraError;
+use leptos::*;
 use serde::{Deserialize, Serialize};
 
 #[cfg(feature = "ssr")]
@@ -192,7 +192,6 @@ pub async fn refresh_token(
 ) -> Result<JabraCookie, crate::errors::JabraError> {
     use crate::components::models::DirectusLoginResponse;
 
-
     let url = std::env::var("DIRECTUSURL").unwrap();
 
     let path = format!("{}/auth/refresh", url);
@@ -309,4 +308,3 @@ pub async fn set_jabra_cookie(jabra_cookie: Option<JabraCookie>, cookie_name: St
     response_parts.headers = headers;
     response.overwrite(response_parts);
 }
-

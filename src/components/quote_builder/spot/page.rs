@@ -1,8 +1,21 @@
 use leptos::*;
 
-use crate::components::{common::{components::modals::{ErrorModal, SuccessModalRefetch}, functions::{helpers::{calculate_time_difference, get_expiry}, precision::{format_with_specs, RoundType}, utils::fetch_unified_configuration}, models::{
-        common_models::{Currency, CurrencyPair, UnifiedCurrencyPairConfigurationResponse}, quote_model::QuotesTab, quote_option_model::{ApproveTradeQuoteRequest, ApproveTradeQuoteResponse}
-    }}, quote_builder::spot::model::{sort, SpotQuote, SpotSort}};
+use crate::components::{
+    common::{
+        components::modals::{ErrorModal, SuccessModalRefetch},
+        functions::{
+            helpers::{calculate_time_difference, get_expiry},
+            precision::{format_with_specs, RoundType},
+            utils::fetch_unified_configuration,
+        },
+        models::{
+            common_models::{Currency, CurrencyPair, UnifiedCurrencyPairConfigurationResponse},
+            quote_model::QuotesTab,
+            quote_option_model::{ApproveTradeQuoteRequest, ApproveTradeQuoteResponse},
+        },
+    },
+    quote_builder::spot::model::{sort, SpotQuote, SpotSort},
+};
 
 use super::model::{ExtractedSpotQuote, SpotQuoteHistory};
 
@@ -868,7 +881,6 @@ pub fn Spot(
 //                                         }
 //                                     }
 
-
 //                                 }
 //                             }).collect_view()
 //                         }
@@ -917,7 +929,6 @@ pub fn Spot(
 //                 </tfoot>
 //             </table>
 //         </div>
-
 
 //         {
 //             move || {
@@ -1009,33 +1020,33 @@ pub fn Spot(
 
 // #[server]
 // pub async fn get_quotes() -> Result<SpotQuoteHistory, ServerFnError> {
-    // use crate::common::trade_model::Trade;
-    // let cookie = crate::util::cookie::get_cookie_value("jabra-web-client").await;
-    // let jwt_cookie = crate::util::cookie::JabraCookie::decrypt(cookie.unwrap()).unwrap_or_default();
-    // // let access_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFhMzAzOWU0LTE4ZWItNGRjZC05ZTgzLWE1OTBmMzdhZWZlMiIsInJvbGUiOiI0MmI3YmJkOC05MTJhLTRhZTMtOGNmNy03Y2VkODU3NzNjOGYiLCJhcHBfYWNjZXNzIjp0cnVlLCJhZG1pbl9hY2Nlc3MiOnRydWUsImlhdCI6MTY5OTYyNDkxNSwiZXhwIjoxNjk5NzExMzE1LCJpc3MiOiJkaXJlY3R1cyJ9.sraZ3N-BkHb1NCgUPel3Iolq-rW8IhXGmX7V6m2fKJY";
-    // let bearer_token = format!("Bearer {}", jwt_cookie.access_token);
-    // let url = std::env::var("DIRECTUSURL").unwrap();
-    // let path = format!("{}/items/trade?filter[counterparty_id][id][_eq]={}&filter[expiry_timestamp][_gte]=$NOW&fields={}", url, jwt_cookie.counterparty_id, Trade::get_query());
-    // let mut headers = http::HeaderMap::new();
-    // headers.insert(
-    //     "Authorization",
-    //     http::HeaderValue::from_str(&bearer_token).unwrap(),
-    // );
+// use crate::common::trade_model::Trade;
+// let cookie = crate::util::cookie::get_cookie_value("jabra-web-client").await;
+// let jwt_cookie = crate::util::cookie::JabraCookie::decrypt(cookie.unwrap()).unwrap_or_default();
+// // let access_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFhMzAzOWU0LTE4ZWItNGRjZC05ZTgzLWE1OTBmMzdhZWZlMiIsInJvbGUiOiI0MmI3YmJkOC05MTJhLTRhZTMtOGNmNy03Y2VkODU3NzNjOGYiLCJhcHBfYWNjZXNzIjp0cnVlLCJhZG1pbl9hY2Nlc3MiOnRydWUsImlhdCI6MTY5OTYyNDkxNSwiZXhwIjoxNjk5NzExMzE1LCJpc3MiOiJkaXJlY3R1cyJ9.sraZ3N-BkHb1NCgUPel3Iolq-rW8IhXGmX7V6m2fKJY";
+// let bearer_token = format!("Bearer {}", jwt_cookie.access_token);
+// let url = std::env::var("DIRECTUSURL").unwrap();
+// let path = format!("{}/items/trade?filter[counterparty_id][id][_eq]={}&filter[expiry_timestamp][_gte]=$NOW&fields={}", url, jwt_cookie.counterparty_id, Trade::get_query());
+// let mut headers = http::HeaderMap::new();
+// headers.insert(
+//     "Authorization",
+//     http::HeaderValue::from_str(&bearer_token).unwrap(),
+// );
 
-    // let response = crate::util::http_wrapper::call_and_parse::<crate::common::common_model::BlankRequest,crate::common::trade_model::TradeHistory>(
-    //     Option::None,
-    //     path,
-    //     headers,
-    //     crate::util::http_wrapper::HttpMethod::GET,
-    // )
-    // .await;
-    // match response {
-    //     Ok(res) => Ok(res),
-    //     Err(e) => {
-    //         log::error!("error: {:?}", e);
-    //         Err(ServerFnError::ServerError(e.to_string()))
-    //     }
-    // }
+// let response = crate::util::http_wrapper::call_and_parse::<crate::common::common_model::BlankRequest,crate::common::trade_model::TradeHistory>(
+//     Option::None,
+//     path,
+//     headers,
+//     crate::util::http_wrapper::HttpMethod::GET,
+// )
+// .await;
+// match response {
+//     Ok(res) => Ok(res),
+//     Err(e) => {
+//         log::error!("error: {:?}", e);
+//         Err(ServerFnError::ServerError(e.to_string()))
+//     }
+// }
 //     Ok(SpotQuoteHistory::default())
 // }
 
@@ -1044,31 +1055,31 @@ pub fn Spot(
 // pub async fn approve_trade_quote(
 //     _request: ApproveTradeQuoteRequest,
 // ) -> Result<bool, ServerFnError> {
-    // log::info!("request: {:?}", request);
-    // use crate::util::http_wrapper::{call, HttpMethod};
+// log::info!("request: {:?}", request);
+// use crate::util::http_wrapper::{call, HttpMethod};
 
-    // let cookie = crate::util::cookie::get_cookie_value("jabra-web-client").await;
-    // let jwt_cookie = crate::util::cookie::JabraCookie::decrypt(cookie.unwrap()).unwrap_or_default();
-    // let bearer_token = format!("Bearer {}", jwt_cookie.access_token);
+// let cookie = crate::util::cookie::get_cookie_value("jabra-web-client").await;
+// let jwt_cookie = crate::util::cookie::JabraCookie::decrypt(cookie.unwrap()).unwrap_or_default();
+// let bearer_token = format!("Bearer {}", jwt_cookie.access_token);
 
-    // log::debug!("request: {:?}", request.deserialize());
-    // let url = std::env::var("DIRECTUSURL").unwrap();
-    // let path = format!("{}/items/quotes_option", url);
+// log::debug!("request: {:?}", request.deserialize());
+// let url = std::env::var("DIRECTUSURL").unwrap();
+// let path = format!("{}/items/quotes_option", url);
 
-    // let mut headers = http::HeaderMap::new();
-    // headers.insert(
-    //     "Authorization",
-    //     http::HeaderValue::from_str(&bearer_token).unwrap(),
-    // );
+// let mut headers = http::HeaderMap::new();
+// headers.insert(
+//     "Authorization",
+//     http::HeaderValue::from_str(&bearer_token).unwrap(),
+// );
 
-    // let response =
-    //     call::<ApproveTradeQuoteRequest>(Some(request), path, headers, HttpMethod::PATCH).await;
-    // match response {
-    //     Ok(res) => Ok(res),
-    //     Err(e) => {
-    //         log::info!("error-: {:?}", e);
-    //         Err(ServerFnError::ServerError(e.to_string()))
-    //     }
-    // }
+// let response =
+//     call::<ApproveTradeQuoteRequest>(Some(request), path, headers, HttpMethod::PATCH).await;
+// match response {
+//     Ok(res) => Ok(res),
+//     Err(e) => {
+//         log::info!("error-: {:?}", e);
+//         Err(ServerFnError::ServerError(e.to_string()))
+//     }
+// }
 //     Ok(true)
 // }

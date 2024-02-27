@@ -1,6 +1,9 @@
 use leptos::*;
 
-use crate::components::quote_builder::{future::page::FuturesGeneratorActivity, option::page::OptionsGeneratorActivity, spot::page::SpotGeneratorActivity};
+use crate::components::quote_builder::{
+    future::page::FuturesGeneratorActivity, option::page::OptionsGeneratorActivity,
+    spot::page::SpotGeneratorActivity,
+};
 
 #[allow(non_snake_case)]
 #[component]
@@ -15,7 +18,7 @@ pub fn QuoteBuilder() -> impl IntoView {
                 <div class = "flex flex-1 justify-end">
                     <div class = "join flex-0 border-gray-800 bg-base-100 shadow-md">
                         <button class = "join-item btn pointer-events-none btn-sm rounded-l-lg text-opacity-70">SELECT TYPE</button>
-                        <select class = "join-item select-sm text-xs text-success hover:shadow-sm hover:shadow-success rounded-r-lg bg-base-100" 
+                        <select class = "join-item select-sm text-xs text-success hover:shadow-sm hover:shadow-success rounded-r-lg bg-base-100"
                             on:change = move |event| {
                             let val: String = event_target_value(&event);
                             quote_type.set(val);
@@ -42,9 +45,7 @@ pub fn QuoteBuilder() -> impl IntoView {
 
 #[allow(non_snake_case)]
 #[component]
-pub fn QuoteBuilderPageManager(
-    quote_type: RwSignal<String>,
-) -> impl IntoView {
+pub fn QuoteBuilderPageManager(quote_type: RwSignal<String>) -> impl IntoView {
     view! {
         <div>
             {

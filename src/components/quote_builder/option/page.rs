@@ -1,8 +1,24 @@
 use leptos::*;
 use web_sys::Event;
 
-use crate::components::common::{functions::{helpers::{create_trade_expiry_in_utc, generate_instrument_name_v2, get_expiry, get_trade_expiration_datetime, get_trade_expiry_date, parse_local_datetime_to_str}, precision::{convert_to_decimal, format_with_specs, RoundType}, utils::{add_quote, coin_base_spot, fetch_unified_configuration, sb_counter_parties, sb_fetch_estimate_iv, sb_post_qoute_option}}, models::common_models::{AddQuoteResponse, ClosestOption, CoinBaseSpotPriceResponse, CounterPartyResponse, Currency, CurrencyPair, EstimateIVRequest, EstimateIVResponse, Quote, QuoteOptionRequest, QuoteOptionResponse, UnifiedCurrencyPairConfigurationResponse}};
-
+use crate::components::common::{
+    functions::{
+        helpers::{
+            create_trade_expiry_in_utc, generate_instrument_name_v2, get_expiry,
+            get_trade_expiration_datetime, get_trade_expiry_date, parse_local_datetime_to_str,
+        },
+        precision::{convert_to_decimal, format_with_specs, RoundType},
+        utils::{
+            add_quote, coin_base_spot, fetch_unified_configuration, sb_counter_parties,
+            sb_fetch_estimate_iv, sb_post_qoute_option,
+        },
+    },
+    models::common_models::{
+        AddQuoteResponse, ClosestOption, CoinBaseSpotPriceResponse, CounterPartyResponse, Currency,
+        CurrencyPair, EstimateIVRequest, EstimateIVResponse, Quote, QuoteOptionRequest,
+        QuoteOptionResponse, UnifiedCurrencyPairConfigurationResponse,
+    },
+};
 
 const MINIMUM_PREMIUM_IN_USD: f64 = 10.0;
 
@@ -129,7 +145,7 @@ pub fn OptionsBuilderSpecs(
                 currency_pair.get().quote.tick_size(),
                 currency_pair.get().quote.order_size(),
                 RoundType::Floor,
-                false
+                false,
             )
         } else {
             strike.get()
@@ -202,7 +218,7 @@ pub fn OptionsBuilderSpecs(
             currency_pair.get().base_tick_size(),
             currency_pair.get().base_tick_size(),
             RoundType::Floor,
-            true
+            true,
         )
     };
     let calculated_px_quote = move || {
@@ -211,26 +227,27 @@ pub fn OptionsBuilderSpecs(
             currency_pair.get().quote_tick_size(),
             currency_pair.get().quote_order_size(),
             RoundType::Floor,
-            true
+            true,
         )
     };
 
-    let quote_premium_min = move |side: String| {
-        match side.as_str() {
-            "Buy" => MINIMUM_PREMIUM_IN_USD * -1.0,
-            "Sell" => MINIMUM_PREMIUM_IN_USD,
-            _ => 0.0,
-        }
+    let quote_premium_min = move |side: String| match side.as_str() {
+        "Buy" => MINIMUM_PREMIUM_IN_USD * -1.0,
+        "Sell" => MINIMUM_PREMIUM_IN_USD,
+        _ => 0.0,
     };
 
     let base_premium_min = move |side: String| {
-        let min = (convert_to_decimal(MINIMUM_PREMIUM_IN_USD) / convert_to_decimal(spot.get())).to_string().parse::<f64>().unwrap();
+        let min = (convert_to_decimal(MINIMUM_PREMIUM_IN_USD) / convert_to_decimal(spot.get()))
+            .to_string()
+            .parse::<f64>()
+            .unwrap();
         let formatted_min = format_with_specs(
             min,
             currency_pair.get().base_tick_size(),
             currency_pair.get().base_tick_size(),
             RoundType::Default,
-            false
+            false,
         );
         log::info!("Min: {}", min);
         log::info!("Formatted Min: {}", formatted_min);
@@ -288,7 +305,7 @@ pub fn OptionsBuilderSpecs(
             currency_pair().base_tick_size(),
             currency_pair().base_order_size(),
             RoundType::Floor,
-            false
+            false,
         );
         let calculated_deposit_amount = if side.get() == "Buy" {
             precise_mbca
@@ -427,7 +444,7 @@ pub fn OptionsBuilderSpecs(
             currency_pair().base_tick_size(),
             currency_pair().base_tick_size(),
             RoundType::Floor,
-            true
+            true,
         )
     };
     let quote_total_quote_currency_price = move || {
@@ -444,7 +461,7 @@ pub fn OptionsBuilderSpecs(
             currency_pair().quote_tick_size(),
             currency_pair().quote_tick_size(),
             RoundType::Floor,
-            true
+            true,
         )
     };
 
@@ -761,7 +778,7 @@ pub fn OptionsBuilderSpecs(
 
                         <form on:submit=move |ev| {ev.prevent_default(); on_add_qoute()}>
                             <div class="flex justify-center">
-                                <div class="flex flex-col gap-2 p-4"> 
+                                <div class="flex flex-col gap-2 p-4">
                                     <div>
                                         <div class="stat-title text-xs xl:text-sm">{move || format!("Price ({})", currency_pair.get().base.ticker)}</div>
                                         <div class="stat-value">
@@ -832,7 +849,7 @@ pub fn OptionsBuilderSpecs(
                                         </button>
                                     </div>
                                 </div>
-                                
+
                                 <div class="flex flex-col gap-2 p-4">
                                     <div>
                                         <div class="stat-title text-xs xl:text-sm pb-2">Delta</div>

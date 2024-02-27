@@ -1,5 +1,5 @@
-use serde_json::{json, Value};
 use serde::{Deserialize, Serialize};
+use serde_json::{json, Value};
 
 /// This is a common model that is used multiple times in this project.
 /// It is used to send a blank request to the server to get a response.
@@ -46,7 +46,6 @@ pub struct Query {
     pub fields: Vec<String>,
 }
 
-
 /// Represents the Directus file for file imports.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct DirectusFile {
@@ -91,7 +90,10 @@ impl QueryBuilder {
         let mut filter_json = json!({});
         for (field, value) in &self.filters {
             let field_json = json!({ field: value });
-            filter_json.as_object_mut().unwrap().extend(field_json.as_object().unwrap().clone());
+            filter_json
+                .as_object_mut()
+                .unwrap()
+                .extend(field_json.as_object().unwrap().clone());
         }
         filter_json
     }

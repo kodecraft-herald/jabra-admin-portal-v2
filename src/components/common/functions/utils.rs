@@ -1,14 +1,23 @@
 use leptos::*;
 
-use crate::components::common::{functions::wrapper, models::common_models::{BlankRequest, CoinBaseSpotPriceResponse, CounterPartyResponse, CurrencyPair, EstimateIVRequest, EstimateIVResponse, Quote, QuoteOptionRequest, QuoteOptionResponse, UnifiedCurrencyPairConfigurationResponse}};
+use crate::components::common::{
+    functions::wrapper,
+    models::common_models::{
+        BlankRequest, CoinBaseSpotPriceResponse, CounterPartyResponse, CurrencyPair,
+        EstimateIVRequest, EstimateIVResponse, Quote, QuoteOptionRequest, QuoteOptionResponse,
+        UnifiedCurrencyPairConfigurationResponse,
+    },
+};
 
 /// Server function that gets the unified configuration for the currency pair.
 
 #[server]
-pub async fn fetch_unified_configuration(
-) -> Result<crate::components::common::models::common_models::UnifiedCurrencyPairConfigurationResponse, ServerFnError> {
-    use crate::components::wrapper::JabraCookie;
+pub async fn fetch_unified_configuration() -> Result<
+    crate::components::common::models::common_models::UnifiedCurrencyPairConfigurationResponse,
+    ServerFnError,
+> {
     use crate::components::wrapper::get_cookie_value;
+    use crate::components::wrapper::JabraCookie;
     use crate::components::wrapper::{call_and_parse, HttpMethod};
 
     let cookie = get_cookie_value("jabra-admin-portal-v2").await;
@@ -22,10 +31,12 @@ pub async fn fetch_unified_configuration(
         reqwest::header::HeaderValue::from_str(&bearer).unwrap(),
     );
 
-    let response = call_and_parse::<
-        BlankRequest,
-        UnifiedCurrencyPairConfigurationResponse,
-    >(Option::None, path, headers, HttpMethod::GET)
+    let response = call_and_parse::<BlankRequest, UnifiedCurrencyPairConfigurationResponse>(
+        Option::None,
+        path,
+        headers,
+        HttpMethod::GET,
+    )
     .await;
     match response {
         Ok(res) => Ok(res),
@@ -51,14 +62,13 @@ pub async fn coin_base_spot(
     }
     let path = format!("{}/prices/{}/spot", url, coinbase_name);
 
-    let response =
-        call_and_parse::<BlankRequest, CoinBaseSpotPriceResponse>(
-            Option::None,
-            path,
-            reqwest::header::HeaderMap::default(),
-            HttpMethod::GET,
-        )
-        .await;
+    let response = call_and_parse::<BlankRequest, CoinBaseSpotPriceResponse>(
+        Option::None,
+        path,
+        reqwest::header::HeaderMap::default(),
+        HttpMethod::GET,
+    )
+    .await;
     match response {
         Ok(res) => Ok(res),
         Err(e) => {
@@ -72,8 +82,8 @@ pub async fn coin_base_spot(
 
 #[server]
 pub async fn sb_counter_parties() -> Result<CounterPartyResponse, ServerFnError> {
-    use crate::components::common::functions::wrapper::JabraCookie;
     use crate::components::common::functions::wrapper::get_cookie_value;
+    use crate::components::common::functions::wrapper::JabraCookie;
     use crate::components::common::functions::wrapper::{call_and_parse, HttpMethod};
 
     let cookie = get_cookie_value("jabra-admin-portal-v2").await;
@@ -87,14 +97,13 @@ pub async fn sb_counter_parties() -> Result<CounterPartyResponse, ServerFnError>
         reqwest::header::HeaderValue::from_str(&bearer).unwrap(),
     );
 
-    let response =
-        call_and_parse::<BlankRequest, CounterPartyResponse>(
-            Option::None,
-            path,
-            headers,
-            HttpMethod::GET,
-        )
-        .await;
+    let response = call_and_parse::<BlankRequest, CounterPartyResponse>(
+        Option::None,
+        path,
+        headers,
+        HttpMethod::GET,
+    )
+    .await;
     match response {
         Ok(res) => Ok(res),
         Err(e) => {
@@ -111,8 +120,8 @@ pub async fn sb_counter_parties() -> Result<CounterPartyResponse, ServerFnError>
 pub async fn sb_fetch_estimate_iv(
     request: EstimateIVRequest,
 ) -> Result<EstimateIVResponse, ServerFnError> {
-    use crate::components::common::functions::wrapper::JabraCookie;
     use crate::components::common::functions::wrapper::get_cookie_value;
+    use crate::components::common::functions::wrapper::JabraCookie;
     use crate::components::common::functions::wrapper::{call_and_parse, HttpMethod};
     // use gloo_timers::future::TimeoutFuture;
     // TimeoutFuture::new(1000).await; //Try delaying
@@ -131,10 +140,12 @@ pub async fn sb_fetch_estimate_iv(
         reqwest::header::HeaderValue::from_str(&bearer).unwrap(),
     );
 
-    let response = call_and_parse::<
-        EstimateIVRequest,
-        EstimateIVResponse,
-    >(Some(request), path, headers, HttpMethod::POST)
+    let response = call_and_parse::<EstimateIVRequest, EstimateIVResponse>(
+        Some(request),
+        path,
+        headers,
+        HttpMethod::POST,
+    )
     .await;
     match response {
         Ok(res) => Ok(res),
@@ -153,7 +164,9 @@ pub async fn sb_post_qoute_option(
     request: QuoteOptionRequest,
 ) -> Result<QuoteOptionResponse, ServerFnError> {
     use crate::components::common::functions::wrapper::JabraCookie;
-    use crate::components::common::functions::wrapper::{call_and_parse, get_cookie_value, HttpMethod};
+    use crate::components::common::functions::wrapper::{
+        call_and_parse, get_cookie_value, HttpMethod,
+    };
 
     let cookie = get_cookie_value("jabra-admin-portal-v2").await;
     let jwt_cookie = JabraCookie::decrypt(cookie.unwrap()).unwrap_or_default();
@@ -162,8 +175,7 @@ pub async fn sb_post_qoute_option(
     // Check if token expires, this checking will be available only to actions and server action
     // Other resources will still work due to 10 minutes buffer time
     if jwt_cookie.is_expired() {
-        let refresh =
-            wrapper::refresh_token(jwt_cookie.user_id, jwt_cookie.refresh_token).await;
+        let refresh = wrapper::refresh_token(jwt_cookie.user_id, jwt_cookie.refresh_token).await;
         match refresh {
             Ok(r) => {
                 bearer = format!("Bearer {}", r.access_token);
@@ -185,10 +197,12 @@ pub async fn sb_post_qoute_option(
         reqwest::header::HeaderValue::from_str(&bearer).unwrap(),
     );
 
-    let response = call_and_parse::<
-        QuoteOptionRequest,
-        QuoteOptionResponse,
-    >(Some(request), path, headers, HttpMethod::POST)
+    let response = call_and_parse::<QuoteOptionRequest, QuoteOptionResponse>(
+        Some(request),
+        path,
+        headers,
+        HttpMethod::POST,
+    )
     .await;
     match response {
         Ok(res) => Ok(res),
@@ -214,8 +228,7 @@ pub async fn add_quote(request: Vec<Quote>) -> Result<bool, ServerFnError> {
     // Check if token expires, this checking will be available only to actions and server action
     // Other resources will still work due to 10 minutes buffer time
     if jwt_cookie.is_expired() {
-        let refresh =
-            wrapper::refresh_token(jwt_cookie.user_id, jwt_cookie.refresh_token).await;
+        let refresh = wrapper::refresh_token(jwt_cookie.user_id, jwt_cookie.refresh_token).await;
         match refresh {
             Ok(r) => {
                 bearer = format!("Bearer {}", r.access_token);
@@ -236,8 +249,13 @@ pub async fn add_quote(request: Vec<Quote>) -> Result<bool, ServerFnError> {
         reqwest::header::HeaderValue::from_str(&bearer).unwrap(),
     );
     // log::info!("request: {:?}", request);
-    let response =
-        call::<Vec<crate::components::common::models::common_models::Quote>>(Some(request), path, headers, HttpMethod::POST).await;
+    let response = call::<Vec<crate::components::common::models::common_models::Quote>>(
+        Some(request),
+        path,
+        headers,
+        HttpMethod::POST,
+    )
+    .await;
     match response {
         Ok(res) => Ok(res),
         Err(e) => {

@@ -1,7 +1,19 @@
-use crate::components::common::{components::{common_attributes::ComponentType, input::{InputDatePicker, InputNumber, InputPassword, InputText}, range_selector::RangeSelector}, functions::helpers::extract_date_as_string};
+use crate::components::common::{
+    components::{
+        common_attributes::ComponentType,
+        input::{InputDatePicker, InputNumber, InputPassword, InputText},
+        range_selector::RangeSelector,
+    },
+    functions::helpers::extract_date_as_string,
+};
 use chrono::Utc;
+use h_modals::{
+    attributes::enums::{ComponentStatus, Position},
+    confirm_modal::components::ConfirmModal,
+    status_modal::components::StatusModal,
+    status_modal_fn::components::StatusModalWithFunction,
+};
 use leptos::*;
-use h_modals::{attributes::enums::{ComponentStatus, Position}, confirm_modal::components::ConfirmModal, status_modal::components::StatusModal, status_modal_fn::components::StatusModalWithFunction};
 
 #[allow(non_snake_case)]
 #[component]
@@ -65,11 +77,13 @@ pub fn ComponentTesting() -> impl IntoView {
 
         "dialogbox" => view! {
             <DialogBoxComponent/>
-        }.into_view(),
+        }
+        .into_view(),
 
         "confirmmodal" => view! {
             <ConfirmModalComponent/>
-        }.into_view(),
+        }
+        .into_view(),
         _ => view! {
             <h1>Select a component to render.</h1>
         }
@@ -192,8 +206,8 @@ pub fn ConfirmModalComponent() -> impl IntoView {
             Ok(result) => {
                 log::info!("Action Successful!");
                 signal.set(false);
-                return result
-            },
+                return result;
+            }
             Err(err) => {
                 log::error!("Server Function Error: {:?}", err);
                 signal.set(false);
@@ -202,7 +216,6 @@ pub fn ConfirmModalComponent() -> impl IntoView {
         }
     });
     let pending_signal = action.pending();
-
 
     let confirm_modal_fn = move || {
         log::info!("Confirm Modal Function");
@@ -221,7 +234,7 @@ pub fn ConfirmModalComponent() -> impl IntoView {
     }
 }
 
-pub async fn server_function() -> Result<String, ServerFnError>{
+pub async fn server_function() -> Result<String, ServerFnError> {
     use gloo_timers::future::sleep;
     use std::time::Duration;
 
@@ -229,6 +242,5 @@ pub async fn server_function() -> Result<String, ServerFnError>{
 
     sleep(Duration::from_secs(1)).await;
 
-    return Ok(String::from("This came from a server function."))
-
+    return Ok(String::from("This came from a server function."));
 }
