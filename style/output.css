@@ -4806,17 +4806,6 @@ details.collapse summary::-webkit-details-marker{
     }
 } */
 
-@media (min-width: 1280px){
-  .xl\:input-md{
-    height: 3rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    line-height: 2;
-  }
-}
-
 .hover\:bg-base-100:hover{
   --tw-bg-opacity: 1;
   background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
@@ -4851,14 +4840,6 @@ details.collapse summary::-webkit-details-marker{
 }
 
 @media (min-width: 768px){
-  .md\:flex{
-    display: flex;
-  }
-
-  .md\:hidden{
-    display: none;
-  }
-
   .md\:flex-nowrap{
     flex-wrap: nowrap;
   }

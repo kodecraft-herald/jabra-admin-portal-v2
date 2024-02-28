@@ -157,7 +157,7 @@ pub fn Anchor(
                         <a class = {is_selected(location_fn() == {format!("{}", anchor_url_fn())}, false)} href = {format!("{}", anchor_url_fn())}>
                             <Icon
                                 title = icon_title.clone()
-                                size = "w-6 h-6".to_string()
+                                size = "w-5 h-5".to_string()
                                 // size = "22px".to_string()
                             />
                             <span class="text-center">{format!("{}", title.clone())}</span>
@@ -170,7 +170,7 @@ pub fn Anchor(
                         <a class = {is_selected(location_fn() == {format!("{}", anchor_url_fn())}, true)} href = {format!("{}", anchor_url_fn())}>
                             <Icon
                                 title = icon_title.clone()
-                                size = "w-7 h-7".to_string()
+                                size = "w-6 h-6".to_string()
                                 // size = "26px".to_string()
                             />
                         </a>
@@ -205,7 +205,7 @@ pub fn MenuWithSubMenu(
                     <div class="flex flex-row gap-2 items-center">
                         <Icon
                             title = icon_title.clone()
-                            size = "w-6 h-6".to_string()
+                            size = "w-5 h-5".to_string()
                             // size = "22px".to_string()
                         />
                         <span>{format!("{}", title.clone())}</span>
@@ -223,7 +223,7 @@ pub fn MenuWithSubMenu(
                         <div tabindex="0" role="button" class = {move || is_selected_collapse(sub_menu_open)}>
                             <Icon
                                 title = icon_title.clone()
-                                size = "w-7 h-7".to_string()
+                                size = "w-6 h-6".to_string()
                                 // size = "26px".to_string()
                             />
                         </div>
