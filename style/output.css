@@ -4189,10 +4189,6 @@ details.collapse summary::-webkit-details-marker{
   width: 2rem;
 }
 
-.w-96{
-  width: 24rem;
-}
-
 .w-full{
   width: 100%;
 }
@@ -4530,6 +4526,10 @@ details.collapse summary::-webkit-details-marker{
 
 .pb-2{
   padding-bottom: 0.5rem;
+}
+
+.pb-4{
+  padding-bottom: 1rem;
 }
 
 .pb-5{

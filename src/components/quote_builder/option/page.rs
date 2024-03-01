@@ -691,22 +691,22 @@ pub fn OptionsBuilderSpecs(
                         </div>
                     </div>
                     <div>
-                        <table class = "table table-zebra table-xs overflow-auto">
-                            <thead class = "text-sm text-success border-y bg-base-200 border-gray-800">
-                                <th>INSTRUMENT NAME</th>
-                                <th>MARK IV</th>
-                                <th>BID IV</th>
-                                <th>ASK IV</th>
-                            </thead>
-                            <tbody>
-                            <Show when = move || can_fetch_iv() >
-                                <Suspense
-                                fallback = move || view! {
-                                    <div class = "skeleton flex w-96 h-52 border border-gray-800 rounded-md bg-base-300 items-center justify-center">
-                                        <span class="loading loading-bars loading-sm text-success"></span>
-                                    </div>
-                                }
-                                >
+                        <Suspense
+                        fallback = move || view! {
+                            <div class = "skeleton flex w-full h-52 border border-gray-800 rounded-md bg-base-300 items-center justify-center">
+                                <span class="loading loading-bars loading-sm text-success"></span>
+                            </div>
+                        }
+                        >
+                            <table class = "table table-zebra table-xs overflow-auto">
+                                <thead class = "text-sm text-success border-y bg-base-200 border-gray-800">
+                                    <th>INSTRUMENT NAME</th>
+                                    <th>MARK IV</th>
+                                    <th>BID IV</th>
+                                    <th>ASK IV</th>
+                                </thead>
+                                <tbody>
+                                <Show when = move || can_fetch_iv() >
                                     {
                                         move || {
                                             qoute_option_response.set(QuoteOptionResponse::default());
@@ -744,10 +744,10 @@ pub fn OptionsBuilderSpecs(
                                             })
                                         }
                                     }
-                                </Suspense>
-                            </Show>
-                            </tbody>
-                        </table>
+                                </Show>
+                                </tbody>
+                            </table>
+                        </Suspense>
                     </div>
                     <div class = "flex flex-row justify-end gap-2 py-2 border-y border-y-gray-800 mx-1">
                         <div class = "join flex-1 basis-1/5 lg:grow-0 mr-4">
@@ -778,7 +778,7 @@ pub fn OptionsBuilderSpecs(
 
                         <form on:submit=move |ev| {ev.prevent_default(); on_add_qoute()}>
                             <div class="flex justify-center">
-                                <div class="flex flex-col gap-2 p-4">
+                                <div class="flex flex-col gap-2 pb-4 px-4">
                                     <div>
                                         <div class="stat-title text-xs xl:text-sm">{move || format!("Price ({})", currency_pair.get().base.ticker)}</div>
                                         <div class="stat-value">
@@ -850,7 +850,7 @@ pub fn OptionsBuilderSpecs(
                                     </div>
                                 </div>
 
-                                <div class="flex flex-col gap-2 p-4">
+                                <div class="flex flex-col gap-2 pb-4 px-4">
                                     <div>
                                         <div class="stat-title text-xs xl:text-sm pb-2">Delta</div>
                                         <input class = "text-md input-sm rounded bg-base-100 border-gray-800 shadow-md" disabled type = "text" prop:value = move || delta()/>
