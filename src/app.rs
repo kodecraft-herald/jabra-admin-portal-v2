@@ -71,6 +71,7 @@ pub fn App() -> impl IntoView {
                         <Route path="/positions" view=Page/>
                         <Route path="/trade_history" view=Page/>
                         <Route path="/components" view=Page/>
+                        <Route path="/perp-aggregator" view=Page/>
                     </Routes>
                 </div>
             </main>

@@ -127,7 +127,7 @@ pub fn InputNumber(
         value.set(val);
     };
 
-    let base_class = "input input-bordered w-full rounded hover:shadow-md".to_string();
+    let base_class = "input input-bordered w-full max-w-xs rounded hover:shadow-md".to_string();
 
     let size_class = get_input_size_class(size.clone(), base_class.clone());
 

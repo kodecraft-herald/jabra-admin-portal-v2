@@ -8,3 +8,4 @@ pub mod page;
 pub mod quote_builder;
 pub mod sidebar;
 pub mod wrapper;
+pub mod perp_aggregator;
