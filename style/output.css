@@ -3845,21 +3845,6 @@ details.collapse summary::-webkit-details-marker{
   --filler-offset: 1rem;
 }
 
-.select-md{
-  height: 3rem;
-  min-height: 3rem;
-  padding-left: 1rem;
-  padding-right: 2.5rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  line-height: 2;
-}
-
-[dir="rtl"] .select-md{
-  padding-left: 2.5rem;
-  padding-right: 1rem;
-}
-
 .select-sm{
   height: 2rem;
   min-height: 2rem;
@@ -4097,8 +4082,8 @@ details.collapse summary::-webkit-details-marker{
   margin-bottom: 0.5rem;
 }
 
-.mb-9{
-  margin-bottom: 2.25rem;
+.mb-8{
+  margin-bottom: 2rem;
 }
 
 .ml-2{
@@ -4169,10 +4154,6 @@ details.collapse summary::-webkit-details-marker{
   height: 0.75rem;
 }
 
-.h-32{
-  height: 8rem;
-}
-
 .h-4{
   height: 1rem;
 }
@@ -4199,10 +4180,6 @@ details.collapse summary::-webkit-details-marker{
 
 .h-full{
   height: 100%;
-}
-
-.h-9{
-  height: 2.25rem;
 }
 
 .min-h-full{
@@ -4259,10 +4236,6 @@ details.collapse summary::-webkit-details-marker{
 
 .w-full{
   width: 100%;
-}
-
-.w-9{
-  width: 2.25rem;
 }
 
 .max-w-sm{
@@ -4352,17 +4325,6 @@ details.collapse summary::-webkit-details-marker{
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-@keyframes ping{
-  75%, 100%{
-    transform: scale(2);
-    opacity: 0;
-  }
-}
-
-.animate-ping{
-  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-}
-
 .cursor-pointer{
   cursor: pointer;
 }
@@ -4445,10 +4407,6 @@ details.collapse summary::-webkit-details-marker{
 
 .gap-1{
   gap: 0.25rem;
-}
-
-.gap-11{
-  gap: 2.75rem;
 }
 
 .gap-2{
@@ -4650,6 +4608,10 @@ details.collapse summary::-webkit-details-marker{
   padding: 1rem;
 }
 
+.p-6{
+  padding: 1.5rem;
+}
+
 .p-9{
   padding: 2.25rem;
 }
@@ -4679,6 +4641,10 @@ details.collapse summary::-webkit-details-marker{
   padding-bottom: 1.25rem;
 }
 
+.pb-1{
+  padding-bottom: 0.25rem;
+}
+
 .pb-2{
   padding-bottom: 0.5rem;
 }
@@ -4699,24 +4665,20 @@ details.collapse summary::-webkit-details-marker{
   padding-left: 0.25rem;
 }
 
+.pr-1{
+  padding-right: 0.25rem;
+}
+
 .pt-2{
   padding-top: 0.5rem;
 }
 
-.pt-5{
-  padding-top: 1.25rem;
-}
-
-.pt-6{
-  padding-top: 1.5rem;
-}
-
-.pt-9{
-  padding-top: 2.25rem;
-}
-
 .pt-4{
   padding-top: 1rem;
+}
+
+.pt-5{
+  padding-top: 1.25rem;
 }
 
 .text-center{
@@ -4772,10 +4734,6 @@ details.collapse summary::-webkit-details-marker{
 
 .font-light{
   font-weight: 300;
-}
-
-.font-medium{
-  font-weight: 500;
 }
 
 .font-normal{
@@ -4863,6 +4821,19 @@ details.collapse summary::-webkit-details-marker{
 
 .filter{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.min-h-90 {
+  min-height: 90%;
+}
+
+.stat-value{
+  font-size: 2.50rem;
+}
+
+.delay-1500 {
+  animation-name: bounce;
+  animation-delay: 250ms;
 }
 
 @keyframes bounce {

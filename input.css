@@ -6,6 +6,19 @@
 @tailwind components;
 @tailwind utilities;
 
+.min-h-90 {
+  min-height: 90%;
+}
+
+.stat-value{
+  font-size: 2.50rem;
+}
+
+.delay-1500 {
+  animation-name: bounce;
+  animation-delay: 250ms;
+}
+
 @keyframes bounce {
   0%, 100% {
     transform: translateX(-25%);
