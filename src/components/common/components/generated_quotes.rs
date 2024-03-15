@@ -9,10 +9,10 @@ pub fn GeneratedQuotes() -> impl IntoView {
                 <div class = "pb-7">
                     <table class = "table table-zebra table-xs">
                         <thead class = "text-base text-success font-extralight bg-base-300">
-                            <tr class = "text-center border-b border-b-gray-800">
-                                <th colspan = "11" class = "text-success">GENERATED QUOTES</th>
+                            <tr class = "text-center">
+                                <th colspan = "11" class = "text-success p-2">GENERATED QUOTES</th>
                             </tr>
-                            <tr class="border-y border-y-gray-800">
+                            <tr class="border-y border-y-base-100">
                                 <th>PAIR</th>
                                 <th>AMOUNT</th>
                                 <th>PRICE</th>
@@ -38,7 +38,7 @@ pub fn GeneratedQuotes() -> impl IntoView {
                         </tbody>
                     </table>
                 </div>
-                <div class = "flex flex-row-reverse items-center mb-2 border-t border-t-gray-800 p-4">
+                <div class = "flex flex-row-reverse items-center mb-2 border-t border-t-base-100 p-4">
                     <div>
                         <button class = "btn btn-sm btn-info">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">

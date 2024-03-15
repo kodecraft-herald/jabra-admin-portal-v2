@@ -55,7 +55,7 @@ pub fn QuoteBuilderPageManager(quote_type: RwSignal<String>) -> impl IntoView {
                         "Future" => view!{<FuturesGeneratorActivity/>},
                         "Option" => view!{<OptionsGeneratorActivity/>},
                         _ => view! {
-                            <div class = "skeleton h-104 flex sm:basis-full lg:basis-auto border border-gray-800 rounded-md bg-base-300 justify-center items-center">
+                            <div class = "skeleton mt-2 h-104 flex sm:basis-full lg:basis-auto rounded-md bg-base-300 justify-center items-center">
                                 <span class = "opacity-50 text-success">Page not available!</span>
                             </div>
                         }.into_view(),

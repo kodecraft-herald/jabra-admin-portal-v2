@@ -28,7 +28,7 @@ pub fn SpotGeneratorActivity() -> impl IntoView {
     view! {
         <Suspense
             fallback = move || view! {
-                <div class = "skeleton h-104 flex sm:basis-full lg:basis-auto border border-gray-800 rounded-md bg-base-300 justify-center items-center">
+                <div class = "skeleton mt-2 h-104 flex sm:basis-full lg:basis-auto rounded-md bg-base-300 justify-center items-center">
                     <span class="loading loading-bars loading-sm text-success"></span>
                 </div>
             }

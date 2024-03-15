@@ -84,13 +84,6 @@ pub fn Sidebar() -> impl IntoView {
 
                         <Anchor
                             location = location.get()
-                            anchor_url = "/settings".to_string()
-                            title = "Settings".to_string()
-                            sub_anchor = false
-                            icon_title = "Settings".to_string()
-                        />
-                        <Anchor
-                            location = location.get()
                             anchor_url = "/login".to_string()
                             title = "Login".to_string()
                             icon_title = "Login".to_string()

@@ -32,7 +32,7 @@ pub fn OptionsGeneratorActivity() -> impl IntoView {
     view! {
         <Suspense
         fallback = move || view! {
-            <div class = "skeleton h-104 flex sm:basis-full lg:basis-auto border border-gray-800 rounded-md bg-base-300 justify-center items-center">
+            <div class = "skeleton mt-2 h-104 flex sm:basis-full lg:basis-auto rounded-md bg-base-300 justify-center items-center">
                 <span class="loading loading-bars loading-sm text-success"></span>
             </div>
         }
@@ -540,7 +540,7 @@ pub fn OptionsBuilderSpecs(
 
     view! {
         <div class = "flex flex-row gap-2 mt-2 sm:flex:wrap px924:flex-nowrap">
-            <div class = "flex-1 grow-0 border border-gray-800 rounded-md px-4 py-1 bg-base-300">
+            <div class = "flex-1 grow-0 border border-base-200 rounded-md px-4 py-1 bg-base-300">
                 <div class = "flex flex-col">
                     <label class = "block font-light text-sm">Select Pair</label>
                     <select class = "select-sm text-xs text-success block rounded hover:shadow-sm hover:shadow-success bg-base-100 border-gray-800 shadow-md" name="currency_pair"
@@ -679,7 +679,7 @@ pub fn OptionsBuilderSpecs(
                 </div>
             </div>
             <div class = "flex-1 flex-col cb-layout border-gray-800 rounded-md bg-base-300">
-                    <div class="flex stats shadow justify-center bg-inherit">
+                    <div class="flex stats justify-center bg-inherit">
                         <div class="flex flex-wrap">
                             <div class="stat">
                                 <div class="stat-figure text-success">
@@ -693,13 +693,13 @@ pub fn OptionsBuilderSpecs(
                     <div>
                         <Suspense
                         fallback = move || view! {
-                            <div class = "skeleton flex w-full h-52 border border-gray-800 rounded-md bg-base-300 items-center justify-center">
+                            <div class = "skeleton flex w-full h-52 rounded-md bg-base-300 items-center justify-center">
                                 <span class="loading loading-bars loading-sm text-success"></span>
                             </div>
                         }
                         >
                             <table class = "table table-zebra table-xs overflow-auto">
-                                <thead class = "text-sm text-success border-y bg-base-200 border-gray-800">
+                                <thead class = "text-sm text-success border-y bg-base-200 border-base-200">
                                     <th>INSTRUMENT NAME</th>
                                     <th>MARK IV</th>
                                     <th>BID IV</th>
@@ -749,9 +749,9 @@ pub fn OptionsBuilderSpecs(
                             </table>
                         </Suspense>
                     </div>
-                    <div class = "flex flex-row justify-end gap-2 py-2 border-y border-y-gray-800 mx-1">
+                    <div class = "flex flex-row justify-end gap-2 py-2 border-y border-y-base-200 mx-1">
                         <div class = "join flex-1 basis-1/5 lg:grow-0 mr-4">
-                            <button class = "join-item btn btn-outline pointer-events-none btn-sm bg-base-100 border-gray-800">ENTER IV</button>
+                            <button class = "join-item btn btn-outline pointer-events-none btn-sm bg-base-100 border-base-200">ENTER IV</button>
                             <input class = "join-item input-sm text-xs text-success rounded hover:shadow-sm hover:shadow-success bg-base-100 border-gray-800 shadow-md" required name = "iv" type="number" prop:value = iv prop:min = move || currency_pair.get().base_order_size() prop:step = move || currency_pair.get().base_tick_size()
                                 on:change = move |e| {
                                     let val = event_target_value(&e).parse::<f64>().unwrap_or_default();
@@ -771,7 +771,7 @@ pub fn OptionsBuilderSpecs(
                         <button class="flex-1 basis-1/6 lg:grow-0 btn btn-success btn-sm rounded" on:click = move |_| dispatch_quote_option_action()>CALCULATE PRICE</button>
                     </div>
 
-                    <div class = "flex flex-col border-gray-800 rounded-md bg-base-300">
+                    <div class = "flex flex-col border-base-200 rounded-md bg-base-300">
                         <div class = "my-3 text-center">
                             <span class = "text-base font-semibold text-success">OPTION PRICER</span>
                         </div>
