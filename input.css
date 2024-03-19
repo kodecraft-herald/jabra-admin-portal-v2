@@ -6,6 +6,46 @@
 @tailwind components;
 @tailwind utilities;
 
+/* .connector-start::before {
+	content: '';
+	width: 1em;
+	border-bottom: 5px solid;
+	position: absolute;
+	top: 43%;
+  left: -1em;
+	right: auto;
+}
+
+.connector-end::after {
+	content: '';
+	width: 1em;
+	border-bottom: 5px solid;
+	position: absolute;
+	top: 43%;
+  left: auto;
+  right: -1em;
+}
+
+.connector-middle::before {
+	content: '';
+	width: 1em;
+	border-bottom: 5px solid;
+	position: absolute;
+	top: 43%;
+  left: -1em;
+	right: auto;
+}
+
+.connector-middle::after {
+	content: '';
+	width: 1em;
+	border-bottom: 5px solid;
+	position: absolute;
+	top: 43%;
+  left: auto;
+  right: -1em;
+} */
+
 .min-h-90 {
   min-height: 90%;
 }

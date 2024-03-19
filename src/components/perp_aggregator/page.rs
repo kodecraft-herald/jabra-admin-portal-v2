@@ -313,28 +313,31 @@ pub fn Routes() -> impl IntoView {
                     <Icon title="USDC".to_string() size="w-7 h-7".to_string() />
                 </div>
                 <div class="flex flex-col justify-around py-2">
-                    <div class="flex flex-row gap-9 items-center">
-                        <div class="indicator p-1">
+                    <div class="flex flex-row gap-4 lg:gap-9 items-center">
+                        <div class="indicator connector-end">
                             <span class="indicator-item indicator-start badge badge-primary p-1">20%</span>
                             <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center">
                                 <Icon title="USD".to_string() size="w-5 h-5".to_string() />
                                 <span>USD</span>
                             </div>
                         </div>
-                        <span class="p-2">
-                            <Icon title="ARROW-RIGHT".to_string() size="w-5 h-5 animate-bounce".to_string() />
-                        </span>
-                        <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center">
-                            <Icon title="BINANCE".to_string() size="w-5 h-5".to_string() />
-                            <span>Binance</span>
+                        // <span class="p-2">
+                        //     <Icon title="ARROW-RIGHT".to_string() size="w-5 h-5 animate-bounce".to_string() />
+                        // </span>
+                        <div class="connector-end">
+                            <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center">
+                                <Icon title="BINANCE".to_string() size="w-5 h-5".to_string() />
+                                <span>Binance</span>
+                            </div>
                         </div>
-                        <span class="p-2">
-                            <Icon title="ARROW-RIGHT".to_string() size="w-5 h-5 animate-bounce delay-1500".to_string() />
-                        </span>
-                        <span class="p-2 rounded outline outline-1">ERC721 <span class="text-success text-xs">BTC-14MAR23-62034-C</span></span>
+                        
+                        // <span class="p-2">
+                        //     <Icon title="ARROW-RIGHT".to_string() size="w-5 h-5 animate-bounce delay-1500".to_string() />
+                        // </span>
+                        <p class="p-2 rounded outline outline-1 text-xs">ERC721 <span class="text-success text-xs">BTC-14MAR23-62034-C</span></p>
                     </div>
 
-                    <div class="flex flex-row gap-9 items-center">
+                    <div class="flex flex-row gap-4 lg:gap-9 items-center">
                         <div class="indicator p-1">
                             <span class="indicator-item indicator-start badge badge-primary p-1">30%</span>
                             <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center">
@@ -352,10 +355,10 @@ pub fn Routes() -> impl IntoView {
                         <span class="p-2">
                             <Icon title="ARROW-RIGHT".to_string() size="w-5 h-5 animate-bounce delay-1500".to_string() />
                         </span>
-                        <span class="p-2 rounded outline outline-1">ERC721 <span class="text-success text-xs">BTC-14MAR23-62034-C</span></span>
+                        <p class="p-2 rounded outline outline-1 text-xs">ERC721 <span class="text-success text-xs">BTC-14MAR23-62034-C</span></p>
                     </div>
 
-                    <div class="flex flex-row gap-9 items-center">
+                    <div class="flex flex-row gap-4 lg:gap-9 items-center">
                         <div class="indicator p-1">
                             <span class="indicator-item indicator-start badge badge-primary p-1">10%</span>
                             <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center">
@@ -373,10 +376,10 @@ pub fn Routes() -> impl IntoView {
                         <span class="p-2">
                             <Icon title="ARROW-RIGHT".to_string() size="w-5 h-5 animate-bounce delay-1500".to_string() />
                         </span>
-                        <span class="p-2 rounded outline outline-1">ERC721 <span class="text-success text-xs">BTC-14MAR23-62034-C</span></span>
+                        <p class="p-2 rounded outline outline-1 text-xs">ERC721 <span class="text-success text-xs">BTC-14MAR23-62034-C</span></p>
                     </div>
 
-                    <div class="flex flex-row gap-9 items-center">
+                    <div class="flex flex-row gap-4 lg:gap-9 items-center">
                         <div class="indicator p-1">
                             <span class="indicator-item indicator-start badge badge-primary p-1">40%</span>
                             <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center">
@@ -394,7 +397,7 @@ pub fn Routes() -> impl IntoView {
                         <span class="p-2">
                             <Icon title="ARROW-RIGHT".to_string() size="w-5 h-5 animate-bounce delay-1500".to_string() />
                         </span>
-                        <span class="p-2 rounded outline outline-1 animate-pulse">ERC721 <span class="text-success text-xs">BTC-14MAR23-62034-C</span></span>
+                        <p class="p-2 rounded outline outline-1 animate-pulse text-xs">ERC721 <span class="text-success text-xs">BTC-14MAR23-62034-C</span></p>
                     </div>
                 </div>
             </div>

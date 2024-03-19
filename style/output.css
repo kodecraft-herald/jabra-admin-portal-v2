@@ -4421,10 +4421,6 @@ details.collapse summary::-webkit-details-marker{
   gap: 1rem;
 }
 
-.gap-9{
-  gap: 2.25rem;
-}
-
 .overflow-auto{
   overflow: auto;
 }
@@ -4845,6 +4841,46 @@ details.collapse summary::-webkit-details-marker{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+/* .connector-start::before {
+	content: '';
+	width: 1em;
+	border-bottom: 5px solid;
+	position: absolute;
+	top: 43%;
+  left: -1em;
+	right: auto;
+}
+
+.connector-end::after {
+	content: '';
+	width: 1em;
+	border-bottom: 5px solid;
+	position: absolute;
+	top: 43%;
+  left: auto;
+  right: -1em;
+}
+
+.connector-middle::before {
+	content: '';
+	width: 1em;
+	border-bottom: 5px solid;
+	position: absolute;
+	top: 43%;
+  left: -1em;
+	right: auto;
+}
+
+.connector-middle::after {
+	content: '';
+	width: 1em;
+	border-bottom: 5px solid;
+	position: absolute;
+	top: 43%;
+  left: auto;
+  right: -1em;
+} */
+
 .min-h-90 {
   min-height: 90%;
 }
@@ -5064,6 +5100,10 @@ details.collapse summary::-webkit-details-marker{
 
   .lg\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lg\:gap-9{
+    gap: 2.25rem;
   }
 }
 
