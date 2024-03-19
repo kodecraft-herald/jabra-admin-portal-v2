@@ -6,6 +6,26 @@
 @tailwind components;
 @tailwind utilities;
 
+.custom-steps {
+  display: flex;
+}
+
+.custom-steps .custom-step {
+  display: flex;
+  place-items: center;
+  text-align: center;
+  width: 9rem;
+}
+
+.custom-steps .custom-step:before {
+  height: 0.5rem;
+  width: 100%;
+  background-color: var(--fallback-b3, oklch(var(--b1)/var(--tw-bg-opacity)));
+  content: "";
+  margin-inline-end: -100%;
+}
+
+
 /* .connector-start::before {
 	content: '';
 	width: 1em;
@@ -50,7 +70,7 @@
   min-height: 90%;
 }
 
-.stat-value{
+.stat-value {
   font-size: 2.50rem;
 }
 
@@ -60,101 +80,106 @@
 }
 
 @keyframes bounce {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateX(-25%);
     animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
   }
+
   50% {
     transform: translateX(0);
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
 
-@media (min-width: 924px){
-    .px924\:block{
-      display: block;
-    }
-  
-    .px924\:flex{
-      display: flex;
-    }
-  
-    .px924\:hidden{
-      display: none;
-    }
-  
-    .px924\:basis-1\/6{
-      flex-basis: 16.666667%;
-    }
-  
-    .px924\:translate-y-0{
-      --tw-translate-y: 0px;
-      transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-    }
-  
-    .px924\:flex-nowrap{
-      flex-wrap: nowrap;
-    }
-  
-    .px924\:justify-start{
-      justify-content: flex-start;
-    }
+@media (min-width: 924px) {
+  .px924\:block {
+    display: block;
+  }
+
+  .px924\:flex {
+    display: flex;
+  }
+
+  .px924\:hidden {
+    display: none;
+  }
+
+  .px924\:basis-1\/6 {
+    flex-basis: 16.666667%;
+  }
+
+  .px924\:translate-y-0 {
+    --tw-translate-y: 0px;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .px924\:flex-nowrap {
+    flex-wrap: nowrap;
+  }
+
+  .px924\:justify-start {
+    justify-content: flex-start;
+  }
 }
 
 .h-104 {
-    min-height: 26rem;
+  min-height: 26rem;
 }
 
 .offset-clicked {
-    --handleoffset: -1.5rem;
+  --handleoffset: -1.5rem;
 }
 
 .theme-cust {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .main-content {
-    position: relative;
-    top: 8%;
-    width: 100%;
-    min-height: 90vh;
-    left: 50%; /* Move the element 50% from the left edge */
-    transform: translateX(-50%); /* Center it horizontally */
+  position: relative;
+  top: 8%;
+  width: 100%;
+  min-height: 90vh;
+  left: 50%;
+  /* Move the element 50% from the left edge */
+  transform: translateX(-50%);
+  /* Center it horizontally */
 }
 
 
-.collapse-arrow > .collapse-title:after{
-    /* position: unset; */
-    --tw-translate-y: -190%;
-    --tw-rotate: -45deg;
-    pointer-events: pointer;
-    transform-origin: unset;
-  }
+.collapse-arrow>.collapse-title:after {
+  /* position: unset; */
+  --tw-translate-y: -190%;
+  --tw-rotate: -45deg;
+  pointer-events: pointer;
+  transform-origin: unset;
+}
 
 .collapse-title,
 :where(.collapse > input[type="checkbox"]),
-:where(.collapse > input[type="radio"]){
-    min-height: auto;
+:where(.collapse > input[type="radio"]) {
+  min-height: auto;
 }
 
-.collapse[open].collapse-arrow > .collapse-title:after,
-.collapse-open.collapse-arrow > .collapse-title:after,
-.collapse-arrow:focus:not(.collapse-close) > .collapse-title:after,
-.collapse-arrow:not(.collapse-close) > input[type="checkbox"]:checked ~ .collapse-title:after,
-.collapse-arrow:not(.collapse-close) > input[type="radio"]:checked ~ .collapse-title:after{
-    --tw-translate-y: -260%;
-    --tw-rotate: 45deg;
+.collapse[open].collapse-arrow>.collapse-title:after,
+.collapse-open.collapse-arrow>.collapse-title:after,
+.collapse-arrow:focus:not(.collapse-close)>.collapse-title:after,
+.collapse-arrow:not(.collapse-close)>input[type="checkbox"]:checked~.collapse-title:after,
+.collapse-arrow:not(.collapse-close)>input[type="radio"]:checked~.collapse-title:after {
+  --tw-translate-y: -260%;
+  --tw-rotate: 45deg;
 }
 
 .main-content {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
 .svg-bg {
-    position: absolute;
-    top: 30%;
-    /* z-index: 5; */
-    pointer-events: none;
+  position: absolute;
+  top: 30%;
+  /* z-index: 5; */
+  pointer-events: none;
 }
 
 /* .dev-stamp-sm {

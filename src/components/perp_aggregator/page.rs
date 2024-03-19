@@ -36,7 +36,7 @@ pub fn PerpAggregator() -> impl IntoView {
             </div>
 
             <BidAsks />
-            
+
         </div>
     }
 }
@@ -52,7 +52,7 @@ pub fn FillCalculatorInputs() -> impl IntoView {
                     <label for="size" class="label">
                         <span class="text-md text-success font-normal">Size</span>
                     </label>
-                    <input 
+                    <input
                         class="input input-sm text-xs input-bordered w-full max-w-xs rounded hover:shadow-md"
                         type="number"
                         name="size"
@@ -313,92 +313,117 @@ pub fn Routes() -> impl IntoView {
                     <Icon title="USDC".to_string() size="w-7 h-7".to_string() />
                 </div>
                 <div class="flex flex-col justify-around py-2">
-                    <div class="flex flex-row gap-4 lg:gap-9 items-center">
-                        <div class="indicator connector-end">
-                            <span class="indicator-item indicator-start badge badge-primary p-1">20%</span>
-                            <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center">
-                                <Icon title="USD".to_string() size="w-5 h-5".to_string() />
-                                <span>USD</span>
-                            </div>
-                        </div>
-                        // <span class="p-2">
-                        //     <Icon title="ARROW-RIGHT".to_string() size="w-5 h-5 animate-bounce".to_string() />
-                        // </span>
-                        <div class="connector-end">
-                            <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center">
+
+                    <ul class="custom-steps">
+                        <li class="custom-step">
+                            // <div class="indicator connector-end">
+                                // <span class="indicator-item indicator-start badge badge-primary p-1">20%</span>
+                                <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center z-30">
+                                    <Icon title="USD".to_string() size="w-5 h-5".to_string() />
+                                    <span>USD</span>
+                                </div>
+                            // </div>
+                        </li>
+                        <li class="custom-step">
+                            <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center z-20">
                                 <Icon title="BINANCE".to_string() size="w-5 h-5".to_string() />
                                 <span>Binance</span>
                             </div>
-                        </div>
-                        
-                        // <span class="p-2">
-                        //     <Icon title="ARROW-RIGHT".to_string() size="w-5 h-5 animate-bounce delay-1500".to_string() />
-                        // </span>
-                        <p class="p-2 rounded outline outline-1 text-xs">ERC721 <span class="text-success text-xs">BTC-14MAR23-62034-C</span></p>
-                    </div>
-
-                    <div class="flex flex-row gap-4 lg:gap-9 items-center">
-                        <div class="indicator p-1">
-                            <span class="indicator-item indicator-start badge badge-primary p-1">30%</span>
-                            <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center">
-                                <Icon title="USDC".to_string() size="w-5 h-5".to_string() />
-                                <span>USDC</span>
+                        </li>
+                        <li class="custom-step">
+                            <div class="text-wrap">
+                                <p class="p-2 rounded outline outline-1 text-xs z-10">BTC-14MAR23-62034-C</p>
                             </div>
-                        </div>
-                        <span class="p-2">
-                            <Icon title="ARROW-RIGHT".to_string() size="w-5 h-5 animate-bounce".to_string() />
-                        </span>
-                        <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center">
-                            <Icon title="BINANCE".to_string() size="w-5 h-5".to_string() />
-                            <span>Binance</span>
-                        </div>
-                        <span class="p-2">
-                            <Icon title="ARROW-RIGHT".to_string() size="w-5 h-5 animate-bounce delay-1500".to_string() />
-                        </span>
-                        <p class="p-2 rounded outline outline-1 text-xs">ERC721 <span class="text-success text-xs">BTC-14MAR23-62034-C</span></p>
-                    </div>
+                        </li>
+                    </ul>
 
-                    <div class="flex flex-row gap-4 lg:gap-9 items-center">
-                        <div class="indicator p-1">
-                            <span class="indicator-item indicator-start badge badge-primary p-1">10%</span>
-                            <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center">
-                                <Icon title="BTC".to_string() size="w-5 h-5".to_string() />
-                                <span>BTC</span>
-                            </div>
-                        </div>
-                        <span class="p-2">
-                            <Icon title="ARROW-RIGHT".to_string() size="w-5 h-5 animate-bounce".to_string() />
-                        </span>
-                        <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center">
-                            <Icon title="BINANCE".to_string() size="w-5 h-5".to_string() />
-                            <span>Binance</span>
-                        </div>
-                        <span class="p-2">
-                            <Icon title="ARROW-RIGHT".to_string() size="w-5 h-5 animate-bounce delay-1500".to_string() />
-                        </span>
-                        <p class="p-2 rounded outline outline-1 text-xs">ERC721 <span class="text-success text-xs">BTC-14MAR23-62034-C</span></p>
-                    </div>
 
-                    <div class="flex flex-row gap-4 lg:gap-9 items-center">
-                        <div class="indicator p-1">
-                            <span class="indicator-item indicator-start badge badge-primary p-1">40%</span>
-                            <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center">
-                                <Icon title="ETH".to_string() size="w-5 h-5".to_string() />
-                                <span>ETH</span>
-                            </div>
-                        </div>
-                        <span class="p-2">
-                            <Icon title="ARROW-RIGHT".to_string() size="w-5 h-5 animate-bounce".to_string() />
-                        </span>
-                        <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center">
-                            <Icon title="BINANCE".to_string() size="w-5 h-5".to_string() />
-                            <span>Binance</span>
-                        </div>
-                        <span class="p-2">
-                            <Icon title="ARROW-RIGHT".to_string() size="w-5 h-5 animate-bounce delay-1500".to_string() />
-                        </span>
-                        <p class="p-2 rounded outline outline-1 animate-pulse text-xs">ERC721 <span class="text-success text-xs">BTC-14MAR23-62034-C</span></p>
-                    </div>
+                    // <div class="flex flex-row gap-4 lg:gap-9 items-center">
+                        // <div class="indicator connector-end">
+                        //     <span class="indicator-item indicator-start badge badge-primary p-1">20%</span>
+                        //     <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center">
+                        //         <Icon title="USD".to_string() size="w-5 h-5".to_string() />
+                        //         <span>USD</span>
+                        //     </div>
+                        // </div>
+                    //     // <span class="p-2">
+                    //     //     <Icon title="ARROW-RIGHT".to_string() size="w-5 h-5 animate-bounce".to_string() />
+                    //     // </span>
+                    //     <div class="connector-end">
+                            // <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center">
+                            //     <Icon title="BINANCE".to_string() size="w-5 h-5".to_string() />
+                            //     <span>Binance</span>
+                            // </div>
+                    //     </div>
+
+                    //     // <span class="p-2">
+                    //     //     <Icon title="ARROW-RIGHT".to_string() size="w-5 h-5 animate-bounce delay-1500".to_string() />
+                    //     // </span>
+                        // <p class="p-2 rounded outline outline-1 text-xs">ERC721 <span class="text-success text-xs">BTC-14MAR23-62034-C</span></p>
+                    // </div>
+
+                    // <div class="flex flex-row gap-4 lg:gap-9 items-center">
+                    //     <div class="indicator p-1">
+                    //         <span class="indicator-item indicator-start badge badge-primary p-1">30%</span>
+                    //         <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center">
+                    //             <Icon title="USDC".to_string() size="w-5 h-5".to_string() />
+                    //             <span>USDC</span>
+                    //         </div>
+                    //     </div>
+                    //     <span class="p-2">
+                    //         <Icon title="ARROW-RIGHT".to_string() size="w-5 h-5 animate-bounce".to_string() />
+                    //     </span>
+                    //     <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center">
+                    //         <Icon title="BINANCE".to_string() size="w-5 h-5".to_string() />
+                    //         <span>Binance</span>
+                    //     </div>
+                    //     <span class="p-2">
+                    //         <Icon title="ARROW-RIGHT".to_string() size="w-5 h-5 animate-bounce delay-1500".to_string() />
+                    //     </span>
+                    //     <p class="p-2 rounded outline outline-1 text-xs">ERC721 <span class="text-success text-xs">BTC-14MAR23-62034-C</span></p>
+                    // </div>
+
+                    // <div class="flex flex-row gap-4 lg:gap-9 items-center">
+                    //     <div class="indicator p-1">
+                    //         <span class="indicator-item indicator-start badge badge-primary p-1">10%</span>
+                    //         <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center">
+                    //             <Icon title="BTC".to_string() size="w-5 h-5".to_string() />
+                    //             <span>BTC</span>
+                    //         </div>
+                    //     </div>
+                    //     <span class="p-2">
+                    //         <Icon title="ARROW-RIGHT".to_string() size="w-5 h-5 animate-bounce".to_string() />
+                    //     </span>
+                    //     <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center">
+                    //         <Icon title="BINANCE".to_string() size="w-5 h-5".to_string() />
+                    //         <span>Binance</span>
+                    //     </div>
+                    //     <span class="p-2">
+                    //         <Icon title="ARROW-RIGHT".to_string() size="w-5 h-5 animate-bounce delay-1500".to_string() />
+                    //     </span>
+                    //     <p class="p-2 rounded outline outline-1 text-xs">ERC721 <span class="text-success text-xs">BTC-14MAR23-62034-C</span></p>
+                    // </div>
+
+                    // <div class="flex flex-row gap-4 lg:gap-9 items-center">
+                    //     <div class="indicator p-1">
+                    //         <span class="indicator-item indicator-start badge badge-primary p-1">40%</span>
+                    //         <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center">
+                    //             <Icon title="ETH".to_string() size="w-5 h-5".to_string() />
+                    //             <span>ETH</span>
+                    //         </div>
+                    //     </div>
+                    //     <span class="p-2">
+                    //         <Icon title="ARROW-RIGHT".to_string() size="w-5 h-5 animate-bounce".to_string() />
+                    //     </span>
+                    //     <div class="flex flex-row gap-1 p-2 rounded outline outline-1 items-center">
+                    //         <Icon title="BINANCE".to_string() size="w-5 h-5".to_string() />
+                    //         <span>Binance</span>
+                    //     </div>
+                    //     <span class="p-2">
+                    //         <Icon title="ARROW-RIGHT".to_string() size="w-5 h-5 animate-bounce delay-1500".to_string() />
+                    //     </span>
+                    //     <p class="p-2 rounded outline outline-1 animate-pulse text-xs">ERC721 <span class="text-success text-xs">BTC-14MAR23-62034-C</span></p>
+                    // </div>
                 </div>
             </div>
         </div>

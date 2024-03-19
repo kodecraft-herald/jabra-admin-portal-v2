@@ -4019,6 +4019,18 @@ details.collapse summary::-webkit-details-marker{
   position: relative;
 }
 
+.z-10{
+  z-index: 10;
+}
+
+.z-20{
+  z-index: 20;
+}
+
+.z-30{
+  z-index: 30;
+}
+
 .z-\[1\]{
   z-index: 1;
 }
@@ -4427,6 +4439,10 @@ details.collapse summary::-webkit-details-marker{
 
 .overflow-x-auto{
   overflow-x: auto;
+}
+
+.text-wrap{
+  text-wrap: wrap;
 }
 
 .rounded{
@@ -4841,6 +4857,25 @@ details.collapse summary::-webkit-details-marker{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.custom-steps {
+  display: flex;
+}
+
+.custom-steps .custom-step {
+  display: flex;
+  place-items: center;
+  text-align: center;
+  width: 9rem;
+}
+
+.custom-steps .custom-step:before {
+  height: 0.5rem;
+  width: 100%;
+  background-color: var(--fallback-b3, oklch(var(--b1)/var(--tw-bg-opacity)));
+  content: "";
+  margin-inline-end: -100%;
+}
+
 /* .connector-start::before {
 	content: '';
 	width: 1em;
@@ -4885,7 +4920,7 @@ details.collapse summary::-webkit-details-marker{
   min-height: 90%;
 }
 
-.stat-value{
+.stat-value {
   font-size: 2.50rem;
 }
 
@@ -4895,7 +4930,8 @@ details.collapse summary::-webkit-details-marker{
 }
 
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(-25%);
     animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
   }
@@ -4906,33 +4942,33 @@ details.collapse summary::-webkit-details-marker{
   }
 }
 
-@media (min-width: 924px){
-  .px924\:block{
+@media (min-width: 924px) {
+  .px924\:block {
     display: block;
   }
 
-  .px924\:flex{
+  .px924\:flex {
     display: flex;
   }
 
-  .px924\:hidden{
+  .px924\:hidden {
     display: none;
   }
 
-  .px924\:basis-1\/6{
+  .px924\:basis-1\/6 {
     flex-basis: 16.666667%;
   }
 
-  .px924\:translate-y-0{
+  .px924\:translate-y-0 {
     --tw-translate-y: 0px;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
-  .px924\:flex-nowrap{
+  .px924\:flex-nowrap {
     flex-wrap: nowrap;
   }
 
-  .px924\:justify-start{
+  .px924\:justify-start {
     justify-content: flex-start;
   }
 }
@@ -4960,7 +4996,7 @@ details.collapse summary::-webkit-details-marker{
   /* Center it horizontally */
 }
 
-.collapse-arrow > .collapse-title:after{
+.collapse-arrow>.collapse-title:after {
   /* position: unset; */
   --tw-translate-y: -190%;
   --tw-rotate: -45deg;
@@ -4970,15 +5006,15 @@ details.collapse summary::-webkit-details-marker{
 
 .collapse-title,
 :where(.collapse > input[type="checkbox"]),
-:where(.collapse > input[type="radio"]){
+:where(.collapse > input[type="radio"]) {
   min-height: auto;
 }
 
-.collapse[open].collapse-arrow > .collapse-title:after,
-.collapse-open.collapse-arrow > .collapse-title:after,
-.collapse-arrow:focus:not(.collapse-close) > .collapse-title:after,
-.collapse-arrow:not(.collapse-close) > input[type="checkbox"]:checked ~ .collapse-title:after,
-.collapse-arrow:not(.collapse-close) > input[type="radio"]:checked ~ .collapse-title:after{
+.collapse[open].collapse-arrow>.collapse-title:after,
+.collapse-open.collapse-arrow>.collapse-title:after,
+.collapse-arrow:focus:not(.collapse-close)>.collapse-title:after,
+.collapse-arrow:not(.collapse-close)>input[type="checkbox"]:checked~.collapse-title:after,
+.collapse-arrow:not(.collapse-close)>input[type="radio"]:checked~.collapse-title:after {
   --tw-translate-y: -260%;
   --tw-rotate: 45deg;
 }
